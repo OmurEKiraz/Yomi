@@ -1,18 +1,6 @@
-# Ağ İstekleri için (İnternete çıkış kapımız)
-requests>=2.31.0
-
-# HTML Parçalama için (Siteyi okuyan gözler)
-beautifulsoup4>=4.12.0
-lxml>=4.9.0
-
-# Komut Satırı Arayüzü için (Argparse yerine daha modern)
-click>=8.1.0
-
-# Görsel Arayüz ve Loglar için (Terminali renklendirme)
-rich>=13.0.0
-
-# Resim İşleme ve PDF yapma için
-Pillow>=10.0.0
-
-# Sahte Tarayıcı Bilgileri için (Anti-Ban)
-fake-useragent>=1.1.0
+click
+requests
+curl_cffi
+beautifulsoup4
+rich
+pillow
