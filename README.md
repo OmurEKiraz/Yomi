@@ -6,7 +6,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=for-the-badge&logo=python)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Stable_v1.0-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Stable_v0.2.0-orange?style=for-the-badge)
 
 **Yomi** is not just a downloader; it is a full-stack **Manga Archival Solution**. It is designed to hunt down active mirror sites, bypass "Access Denied" image protections (like Nangca/CDN), and package your manga into professional, metadata-tagged formats ready for media servers like **Kavita**, **Komga**, or **CDisplayEx**.
 
