@@ -70,26 +70,28 @@ def available():
     """List verified sites from sites.json"""
     table = Table(title="Community Verified Sites")
     table.add_column("Site Name", style="cyan")
-    table.add_column("URL", style="green")
+    table.add_column("Target / Pattern", style="green")
+    table.add_column("Type", style="magenta")
 
-    # Load sites from the JSON file
-    json_path = "sites.json"
+    # DOĞRU YOL: yomi klasörünün içindeki sites.json'ı bul
+    json_path = os.path.join(os.path.dirname(__file__), "sites.json")
+    
     if os.path.exists(json_path):
         try:
             with open(json_path, 'r') as f:
                 sites = json.load(f)
-                for site in sites:
-                    table.add_row(site['name'], site['url'])
+                for key, data in sites.items():
+                    # Dinamik siteler için pattern'i, diğerleri için URL'yi göster
+                    target = data.get('base_domain') if 'base_domain' in data else data.get('url')
+                    name = data.get('name', key.capitalize())
+                    engine_type = data.get('type', 'static')
+                    
+                    table.add_row(name, target, engine_type)
         except json.JSONDecodeError:
-             table.add_row("Error", "sites.json is corrupted")
+             table.add_row("Error", "sites.json corrupted", "ERROR")
     else:
-        # Default fallback if no file exists
-        table.add_row("Rent-a-Girlfriend (W5)", "https://w5.rentagirlfriendmanga.org/")
-        table.add_row("Asura Scans", "https://asuracomic.net/")
-        table.add_row("Flame Scans", "https://flamecomics.com/")
-        console.print("[dim]Tip: Create a 'sites.json' file to add your own sites![/dim]")
+        console.print("[red]sites.json not found![/red]")
     
     console.print(table)
-
 if __name__ == '__main__':
     cli()

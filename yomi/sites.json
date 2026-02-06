@@ -1,7 +1,23 @@
-[
-  {"name": "Rent-a-Girlfriend (W5)", "url": "https://w5.rentagirlfriendmanga.org/"},
-  {"name": "One Piece (W5 Mirror)", "url": "https://ww9.readonepiece.com/"},
-  {"name": "Jujutsu Kaisen (Online)", "url": "https://jujutsukaisen.online/"},
-  {"name": "Asura Scans", "url": "https://asuracomic.net/"},
-  {"name": "Flame Scans", "url": "https://flamecomics.com/"}
-]
+{
+  "bleach": {
+    "name": "Bleach",
+    "type": "dynamic",
+    "base_domain": "bleach-read.com",
+    "test_path": "/manga/bleach-chapter-1",
+    "url_pattern": "{mirror}/manga/bleach-chapter-{chapter}"
+  },
+  "one-piece": {
+    "name": "One Piece",
+    "type": "dynamic",
+    "base_domain": "onepiece-manga-online.net",
+    "test_path": "/manga/one-piece-chapter-1/",
+    "url_pattern": "{mirror}/"
+  },
+  "solo-leveling": {
+    "name": "Solo Leveling",
+    "type": "dynamic",
+    "base_domain": "sololeveling-manga.net",
+    "test_path": "/manga/solo-leveling-chapter-1",
+    "url_pattern": "{mirror}/manga/solo-leveling"
+  }
+}

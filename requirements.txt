@@ -2,5 +2,7 @@ click
 requests
 curl_cffi
 beautifulsoup4
+lxml         
 rich
 pillow
+img2pdf

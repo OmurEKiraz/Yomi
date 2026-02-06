@@ -1,43 +1,56 @@
 import sqlite3
 import os
+import logging
 
 class YomiDB:
-    def __init__(self, db_path="yomi_history.db"):
-        self.conn = sqlite3.connect(db_path, check_same_thread=False)
-        self.create_table()
+    def __init__(self, db_path):
+        self.db_path = db_path
+        os.makedirs(os.path.dirname(db_path), exist_ok=True)
+        self.conn = sqlite3.connect(self.db_path, check_same_thread=False)
+        self.cursor = self.conn.cursor()
+        self._init_db()
 
-    def create_table(self):
-        query = """
-        CREATE TABLE IF NOT EXISTS downloads (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            manga_title TEXT,
-            chapter_title TEXT,
-            status TEXT,
-            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-            UNIQUE(manga_title, chapter_title)
-        )
-        """
-        self.conn.execute(query)
+    def _init_db(self):
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS downloads (
+                manga TEXT,
+                chapter TEXT,
+                date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                PRIMARY KEY (manga, chapter)
+            )
+        ''')
         self.conn.commit()
 
-    def is_completed(self, manga_title, chapter_title):
-        """Check if a chapter is already marked as done."""
-        cursor = self.conn.execute(
-            "SELECT 1 FROM downloads WHERE manga_title = ? AND chapter_title = ? AND status = 'completed'",
-            (manga_title, chapter_title)
-        )
-        return cursor.fetchone() is not None
+    def _normalize(self, text):
+        """Metni standart hale getirir (Boşlukları sil, küçük harf yap)."""
+        if not text: return ""
+        # "Chapter 01" -> "chapter1", "Vol. 1" -> "vol1"
+        return "".join(text.lower().split())
 
-    def mark_completed(self, manga_title, chapter_title):
-        """Mark a chapter as finished."""
+    def is_completed(self, manga, chapter):
+        """Bölüm daha önce indirilmiş mi kontrol eder."""
+        m_norm = self._normalize(manga)
+        c_norm = self._normalize(chapter)
+        
+        # Tam eşleşme veya normalize edilmiş eşleşme ara
+        self.cursor.execute('SELECT 1 FROM downloads WHERE manga = ? AND chapter = ?', (manga, chapter))
+        if self.cursor.fetchone(): return True
+        
+        # Eğer tam eşleşme yoksa, veritabanındaki tüm kayıtları çekip normalize ederek karşılaştır (Biraz yavaş ama kesin)
+        self.cursor.execute('SELECT chapter FROM downloads WHERE manga = ?', (manga,))
+        results = self.cursor.fetchall()
+        for (saved_chap,) in results:
+            if self._normalize(saved_chap) == c_norm:
+                return True
+        return False
+
+    def mark_completed(self, manga, chapter):
+        """Bölümü tamamlandı olarak işaretler."""
         try:
-            self.conn.execute(
-                "INSERT OR REPLACE INTO downloads (manga_title, chapter_title, status) VALUES (?, ?, 'completed')",
-                (manga_title, chapter_title)
-            )
+            self.cursor.execute('INSERT OR REPLACE INTO downloads (manga, chapter) VALUES (?, ?)', (manga, chapter))
             self.conn.commit()
         except Exception as e:
-            print(f"DB Error: {e}")
+            logging.error(f"DB Error: {e}")
 
     def close(self):
         self.conn.close()
