@@ -1,9 +1,10 @@
 click
+rich-click
+rich
 requests      
 aiohttp        
 aiofiles       
 beautifulsoup4
 lxml
-rich
 pillow
 img2pdf
