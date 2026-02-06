@@ -1,0 +1,65 @@
+{
+  "one-piece": {
+    "name": "One Piece",
+    "type": "dynamic",
+    "base_domain": "one-piece-manga.com",
+    "test_path": "/one-piece-manga-chapter-1150-english/",
+    "url_pattern": "{mirror}/one-piece-manga-chapter-1150-english/"
+  },
+  "jujutsu-kaisen": {
+    "name": "Jujutsu Kaisen",
+    "type": "dynamic",
+    "base_domain": "jujutsu-kaisen-manga.com",
+    "test_path": "/manga/jujutsu-kaisen-chapter-271/",
+    "url_pattern": "{mirror}/manga/jujutsu-kaisen-chapter-{chapter}/"
+  },
+  "hunter-x-hunter": {
+    "name": "Hunter X Hunter",
+    "type": "dynamic",
+    "base_domain": "hunter-x-hunter.net",
+    "test_path": "/manga/hunter-x-hunter-chapter-411/",
+    "url_pattern": "{mirror}/manga/hunter-x-hunter-chapter-{chapter}/"
+  },
+  "one-punch-man": {
+    "name": "One Punch Man",
+    "type": "dynamic",
+    "base_domain": "w2.one-punch-man-manga.com",
+    "test_path": "/manga/one-punch-man-chapter-221/",
+    "url_pattern": "{mirror}/manga/one-punch-man-chapter-{chapter}/"
+  },
+  "kagurabachi": {
+    "name": "Kagurabachi",
+    "type": "dynamic",
+    "base_domain": "kagurabachi-manga.com",
+    "test_path": "/comic/kagurabachi-chapter-1/",
+    "url_pattern": "{mirror}/comic/kagurabachi-chapter-{chapter}/"
+  },
+  "dandadan": {
+    "name": "Dandadan",
+    "type": "dynamic",
+    "base_domain": "dandadan.net",
+    "test_path": "/manga/dandadan-chapter-1/",
+    "url_pattern": "{mirror}/manga/dandadan-chapter-{chapter}/"
+  },
+  "solo-leveling": {
+    "name": "Solo Leveling",
+    "type": "dynamic",
+    "base_domain": "w33.solo-leveling-manga.com",
+    "test_path": "/manga/solo-leveling-chapter-199/",
+    "url_pattern": "{mirror}/manga/solo-leveling-chapter-{chapter}/"
+  },
+  "berserk": {
+    "name": "Berserk",
+    "type": "dynamic",
+    "base_domain": "w4.berserk-manga.com",
+    "test_path": "/manga/berserk-chapter-1/",
+    "url_pattern": "{mirror}/manga/berserk-chapter-{chapter}/"
+  },
+  "vagabond": {
+    "name": "Vagabond",
+    "type": "dynamic",
+    "base_domain": "vagabond-manga.com",
+    "test_path": "/manga/vagabond-chapter-321/",
+    "url_pattern": "{mirror}/manga/vagabond-chapter-{chapter}/"
+  }
+}

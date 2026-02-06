@@ -1,0 +1,219 @@
+{
+  "one-piece": {
+    "name": "One Piece",
+    "type": "dynamic",
+    "base_domain": "w1.readone-piece.com",
+    "test_path": "/comic/one-piece-chapter-1171/",
+    "url_pattern": "{mirror}/comic/one-piece-chapter-{chapter}/"
+  },
+  "jujutsu-kaisen": {
+    "name": "Jujutsu Kaisen",
+    "type": "dynamic",
+    "base_domain": "jujutsu-kaisen-manga.com",
+    "test_path": "/manga/jujutsu-kaisen-chapter-271/",
+    "url_pattern": "{mirror}/manga/jujutsu-kaisen-chapter-{chapter}/"
+  },
+  "chainsaw-man": {
+    "name": "Chainsaw Man",
+    "type": "dynamic",
+    "base_domain": "w3.readchainsaw-man.com",
+    "test_path": "/manga/chainsaw-man-chapter-228/",
+    "url_pattern": "{mirror}/manga/chainsaw-man-chapter-{chapter}/"
+  },
+  "black-clover": {
+    "name": "Black Clover",
+    "type": "dynamic",
+    "base_domain": "readblack-clover.com",
+    "test_path": "/chapter-1-the-boys-vow/",
+    "url_pattern": "{mirror}/chapter-{chapter}-the-boys-vow/"
+  },
+  "naruto": {
+    "name": "Naruto",
+    "type": "dynamic",
+    "base_domain": "ww11.readnaruto.com",
+    "test_path": "/chapter/naruto-the-whorl-within-the-spiral-chapter-0",
+    "url_pattern": "{mirror}/chapter/naruto-the-whorl-within-the-spiral-chapter-{chapter}"
+  },
+  "boruto": {
+    "name": "Boruto",
+    "type": "dynamic",
+    "base_domain": "readboruto.com",
+    "test_path": "/chapter-1-uzumaki-boruto/",
+    "url_pattern": "{mirror}/chapter-{chapter}-uzumaki-boruto/"
+  },
+  "hunter-x-hunter": {
+    "name": "Hunter X Hunter",
+    "type": "dynamic",
+    "base_domain": "hunter-x-hunter.net",
+    "test_path": "/hunter-x-hunter-chapter-408/",
+    "url_pattern": "{mirror}/hunter-x-hunter-chapter-{chapter}/"
+  },
+  "one-punch-man": {
+    "name": "One Punch Man",
+    "type": "dynamic",
+    "base_domain": "w2.one-punch-man-manga.com",
+    "test_path": "/manga/one-punch-man-chapter-223/",
+    "url_pattern": "{mirror}/manga/one-punch-man-chapter-{chapter}/"
+  },
+  "kagurabachi": {
+    "name": "Kagurabachi",
+    "type": "dynamic",
+    "base_domain": "kagurabachi-manga.com",
+    "test_path": "/comic/kagurabachi-chapter-1/",
+    "url_pattern": "{mirror}/comic/kagurabachi-chapter-{chapter}/"
+  },
+  "sakamoto-days": {
+    "name": "Sakamoto Days",
+    "type": "dynamic",
+    "base_domain": "sakamoto-days.online",
+    "test_path": "/chapter/218",
+    "url_pattern": "{mirror}/chapter/{chapter}"
+  },
+  "dandadan": {
+    "name": "Dandadan",
+    "type": "dynamic",
+    "base_domain": "dandadan.net",
+    "test_path": "/manga/dandadan-chapter-1/",
+    "url_pattern": "{mirror}/manga/dandadan-chapter-{chapter}/"
+  },
+  "blue-lock": {
+    "name": "Blue Lock",
+    "type": "dynamic",
+    "base_domain": "w38.blue-lock-manga.com",
+    "test_path": "/manga/blue-lock-chapter-335/",
+    "url_pattern": "{mirror}/manga/blue-lock-chapter-{chapter}/"
+  },
+  "ao-ashi": {
+    "name": "Ao Ashi",
+    "type": "dynamic",
+    "base_domain": "w45.ao-ashi-manga.com",
+    "test_path": "/manga/ao-ashi-chapter-412/",
+    "url_pattern": "{mirror}/manga/ao-ashi-chapter-{chapter}/"
+  },
+  "haikyuu": {
+    "name": "Haikyuu",
+    "type": "dynamic",
+    "base_domain": "ww9.readhaikyuu.com",
+    "test_path": "/chapter/haikyuu-bu-chapter-90",
+    "url_pattern": "{mirror}/chapter/haikyuu-bu-chapter-{chapter}"
+  },
+  "kingdom": {
+    "name": "Kingdom",
+    "type": "dynamic",
+    "base_domain": "ww5.readkingdom.com",
+    "test_path": "/chapter/kingdom-history-spoilers-chapter-0",
+    "url_pattern": "{mirror}/chapter/kingdom-history-spoilers-chapter-{chapter}"
+  },
+  "vagabond": {
+    "name": "Vagabond",
+    "type": "dynamic",
+    "base_domain": "vagabond-manga.com",
+    "test_path": "/manga/vagabond-chapter-327/",
+    "url_pattern": "{mirror}/manga/vagabond-chapter-{chapter}/"
+  },
+  "berserk": {
+    "name": "Berserk",
+    "type": "dynamic",
+    "base_domain": "w4.berserk-manga.com",
+    "test_path": "/manga/berserk-chapter-1/",
+    "url_pattern": "{mirror}/manga/berserk-chapter-{chapter}/"
+  },
+  "death-note": {
+    "name": "Death Note",
+    "type": "dynamic",
+    "base_domain": "w13.death-note-manga.com",
+    "test_path": "/manga/death-note-chapter-110-5/",
+    "url_pattern": "{mirror}/manga/death-note-chapter-{chapter}-5/"
+  },
+  "tower-of-god": {
+    "name": "Tower Of God",
+    "type": "dynamic",
+    "base_domain": "tower-of-god.online",
+    "test_path": "/comic/tower-of-god-chapter-0/",
+    "url_pattern": "{mirror}/comic/tower-of-god-chapter-{chapter}/"
+  },
+  "greatest-estate-developer": {
+    "name": "Greatest Estate Developer",
+    "type": "dynamic",
+    "base_domain": "greatest-estate-developer.online",
+    "test_path": "/comic/the-greatest-estate-developer-chapter-1/",
+    "url_pattern": "{mirror}/comic/the-greatest-estate-developer-chapter-{chapter}/"
+  },
+  "claymore": {
+    "name": "Claymore",
+    "type": "dynamic",
+    "base_domain": "readclaymore.com",
+    "test_path": "/manga/claymore-chapter-155/",
+    "url_pattern": "{mirror}/manga/claymore-chapter-{chapter}/"
+  },
+  "blame": {
+    "name": "Blame",
+    "type": "dynamic",
+    "base_domain": "w9.blame-manga.com",
+    "test_path": "/manga/blame-chapter-65/",
+    "url_pattern": "{mirror}/manga/blame-chapter-{chapter}/"
+  },
+  "dorohedoro": {
+    "name": "Dorohedoro",
+    "type": "dynamic",
+    "base_domain": "dorohedoro.online",
+    "test_path": "/manga/dorohedoro-chapter-167-5/",
+    "url_pattern": "{mirror}/manga/dorohedoro-chapter-{chapter}-5/"
+  },
+  "mashle": {
+    "name": "Mashle",
+    "type": "dynamic",
+    "base_domain": "zazamanga.com",
+    "test_path": "/manga/mashle/chapter-162-5",
+    "url_pattern": "{mirror}/manga/mashle/chapter-{chapter}-5"
+  },
+  "rent-a-girlfriend": {
+    "name": "Rent A Girlfriend",
+    "type": "dynamic",
+    "base_domain": "rent-a-girlfriend.online",
+    "test_path": "/comic/rent-a-girlfriend-chapter-1/",
+    "url_pattern": "{mirror}/comic/rent-a-girlfriend-chapter-{chapter}/"
+  },
+  "horimiya": {
+    "name": "Horimiya",
+    "type": "dynamic",
+    "base_domain": "readhorimiya.com",
+    "test_path": "/manga/horimiya-vol-1-chapter-1v2-page-1/",
+    "url_pattern": "{mirror}/manga/horimiya-vol-{chapter}-chapter-1v2-page-1/"
+  },
+  "nisekoi": {
+    "name": "Nisekoi",
+    "type": "dynamic",
+    "base_domain": "nisekoi.online",
+    "test_path": "/comic/nisekoi-chapter-1/",
+    "url_pattern": "{mirror}/comic/nisekoi-chapter-{chapter}/"
+  },
+  "mushoku-tensei": {
+    "name": "Mushoku Tensei",
+    "type": "dynamic",
+    "base_domain": "w9.mushoku-tensei-manga.com",
+    "test_path": "/manga/mushoku-tensei-chapter-113/",
+    "url_pattern": "{mirror}/manga/mushoku-tensei-chapter-{chapter}/"
+  },
+  "overlord": {
+    "name": "Overlord",
+    "type": "dynamic",
+    "base_domain": "zazamanga.com",
+    "test_path": "/manga/overlord/chapter-78",
+    "url_pattern": "{mirror}/manga/overlord/chapter-{chapter}"
+  },
+  "goblin-slayer": {
+    "name": "Goblin Slayer",
+    "type": "dynamic",
+    "base_domain": "goblin-slayer.online",
+    "test_path": "/comic/goblin-slayer-chapter-1/",
+    "url_pattern": "{mirror}/comic/goblin-slayer-chapter-{chapter}/"
+  },
+  "made-in-abyss": {
+    "name": "Made In Abyss",
+    "type": "dynamic",
+    "base_domain": "made-in-abyss-manga.com",
+    "test_path": "/manga/made-in-abyss-chapter-73/",
+    "url_pattern": "{mirror}/manga/made-in-abyss-chapter-{chapter}/"
+  }
+}
