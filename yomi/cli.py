@@ -1,23 +1,30 @@
 import os
 import json
 import logging
+import time
+import math
 import rich_click as click
+from datetime import timedelta
 from rich.console import Console
 from rich.logging import RichHandler
 from rich.table import Table
 from rich import box
-from rich.columns import Columns
 from rich.panel import Panel
 from rich.text import Text
+from rich.progress import Progress, SpinnerColumn, TextColumn
+from rich.style import Style
 
 # --- Core Module ---
 try:
     from .core import YomiCore
 except ImportError:
-    # Geliştirme ortamında çalışırken path hatası almamak için
     import sys
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     from yomi.core import YomiCore
+
+# --- CONSTANTS ---
+VERSION = "v0.4.1 (Stable)"
+APP_NAME = "YOMI CLI"
 
 # --- 1. Console & Logging Setup ---
 console = Console()
@@ -25,102 +32,136 @@ logging.basicConfig(
     level="INFO",
     format="%(message)s",
     datefmt="[%X]",
-    handlers=[RichHandler(console=console, rich_tracebacks=True, markup=True)]
+    handlers=[RichHandler(console=console, rich_tracebacks=True, markup=True, show_path=False)]
 )
-logger = logging.getLogger("YomiCLI")
+logger = logging.getLogger("Yomi")
 
 # --- 2. Rich Click Configuration ---
 click.rich_click.USE_RICH_MARKUP = True
-click.rich_click.SHOW_ARGUMENTS = True
-click.rich_click.GROUP_ARGUMENTS_OPTIONS = True
-click.rich_click.STYLE_ERRORS_SUGGESTION = "magenta italic"
-click.rich_click.ERRORS_SUGGESTION = "Did you mean this?"
-click.rich_click.SHOW_METAVARS_COLUMN = False
-click.rich_click.APPEND_METAVARS_HELP = True
+click.rich_click.STYLE_HEADER_TEXT = "bold magenta"
+click.rich_click.STYLE_OPTION = "bold cyan"
+click.rich_click.STYLE_COMMAND = "bold green"
 
-# --- VIP LISTESI (Vitrin) ---
-# Kullanıcı hiçbir şey aramzsa varsayılan olarak bunlar gözükecek.
+# --- 3. FEATURED LIST (Curated Top Tier) ---
 FEATURED_MANGAS = {
-    "one-piece", "bleach", "naruto", "jujutsu-kaisen", "chainsaw-man",
-    "attack-on-titan", "demon-slayer-kimetsu-no-yaiba", "berserk",
-    "one-punch-man", "vinland-saga", "vagabond", "tokyo-ghoul",
-    "solo-leveling", "spy-x-family", "hunter-x-hunter", "black-clover",
-    "my-hero-academia", "blue-lock", "dandadan", "sakamoto-days",
-    "kingdom", "20th-century-boys", "oyasumi-punpun", "monster",
-    "death-note", "fullmetal-alchemist", "dragon-ball", "gto",
-    "kaguya-sama-love-is-war", "made-in-abyss"
+    "one-piece", "bleach", "naruto", "dragon-ball", "hunter-x-hunter", 
+    "jujutsu-kaisen", "chainsaw-man", "demon-slayer-kimetsu-no-yaiba", "my-hero-academia",
+    "berserk", "vagabond", "vinland-saga", "kingdom", "monster", 
+    "20th-century-boys", "oyasumi-punpun", "tokyo-ghoul", "gantz",
+    "one-punch-man", "spy-x-family", "blue-lock", "dandadan", 
+    "sakamoto-days", "frieren-at-the-funeral"
 }
 
-# --- 3. CLI Group ---
+# --- 4. CLI Group ---
 @click.group()
 def cli():
     """
-    [bold cyan]🐇 YOMI CLI v0.3[/] - [italic white]The Rabbit Hole of Manga[/]
-
-    [green]Yomi[/] is an intelligent archiver that bypasses protections,
-    auto-discovers mirrors, and builds a metadata-rich library.
+    [bold cyan]🐇 YOMI CLI[/] - [italic white]The Rabbit Hole of Manga Archiving[/]
     """
     pass
 
-# --- 4. Download Command ---
+# --- 5. Download Command (Mission Debrief Upgrade) ---
 @cli.command()
-@click.option('-u', '--url', required=True, help="[bold yellow]Target URL[/] or Manga Name (slug). [dim]Ex: 'bleach'[/]")
+@click.option('-u', '--url', required=True, help="Target URL or Manga Name (Slug).")
 @click.option('-o', '--out', default='downloads', show_default=True, help="Output Directory.")
 @click.option('-w', '--workers', default=8, show_default=True, help="Concurrent Download Limit.")
-@click.option('-f', '--format', default='folder', show_default=True, type=click.Choice(['folder', 'pdf', 'cbz'], case_sensitive=False), help="Output Format.")
-@click.option('-r', '--range', 'chapter_range', default=None, help="Chapter Range. [dim]Ex: '1-10'[/]")
+@click.option('-f', '--format', default='folder', type=click.Choice(['folder', 'pdf', 'cbz'], case_sensitive=False), help="Output Format.")
+@click.option('-r', '--range', 'chapter_range', default=None, help="Chapter Range (e.g. 1-10).")
 @click.option('-p', '--proxy', default=None, help="Proxy URL.")
 @click.option('--debug/--no-debug', default=False, help="Enable verbose logs.")
 def download(url, out, workers, format, chapter_range, proxy, debug):
     """
-    📥 [bold]Download Manga[/]
-    
-    Downloads chapters from a URL or a verified name from the database.
+    📥 [bold]Download Manga[/] - [dim]Initialize the extraction engine.[/]
     """
     if debug:
         logger.setLevel("DEBUG")
-        console.print("[bold red]🐛 DEBUG MODE ACTIVE[/bold red]")
+    
+    # --- A. MISSION BRIEFING (Start Screen) ---
+    info_text = Text()
+    info_text.append(f"🎯 Target:   ", style="bold cyan")
+    info_text.append(f"{url}\n", style="white")
+    info_text.append(f"📂 Output:   ", style="bold yellow")
+    info_text.append(f"{out}\n", style="white")
+    info_text.append(f"⚡ Workers:  ", style="bold green")
+    info_text.append(f"{workers} Threads\n", style="white")
+    info_text.append(f"📦 Format:   ", style="bold magenta")
+    info_text.append(f"{format.upper()}", style="white")
 
-    console.print(f"[bold green]🐇 STARTING Yomi...[/bold green]")
+    if chapter_range:
+        info_text.append(f"\nHash Range: {chapter_range}", style="dim italic")
+
+    panel = Panel(
+        info_text,
+        title=f"[bold green]🚀 {APP_NAME} INITIALIZED[/]",
+        subtitle=f"[dim]{VERSION}[/]",
+        border_style="green",
+        expand=False
+    )
+    console.print(panel)
+
+    # --- B. EXECUTION ---
+    start_time = time.time()
     
     try:
-        # Eğer URL değil de isim girildiyse (örn: "bleach"), veritabanından bul
-        if not url.startswith("http"):
-            json_path = os.path.join(os.path.dirname(__file__), "sites.json")
-            if os.path.exists(json_path):
-                with open(json_path, 'r', encoding='utf-8') as f:
-                    sites = json.load(f)
-                    if url in sites:
-                        # URL Pattern'ı oluştur
-                        base_domain = sites[url].get('base_domain')
-                        # Basit bir mantıkla ana sayfayı oluşturuyoruz, 
-                        # Core modülü bunu zaten yönetiyor ama burası CLI tarafı.
-                        # En temizi direkt Core'a slug'ı vermek olabilir ama 
-                        # şimdilik Core url beklediği için pattern'dan türetelim.
-                        # NOT: YomiCore slug desteği varsa direkt slug ver.
-                        pass 
-            
+        # Pre-flight Animation
+        with console.status("[bold cyan]Establishing Uplink... Resolving Target...[/]", spinner="dots12"):
+             if not url.startswith("http"):
+                json_path = os.path.join(os.path.dirname(__file__), "sites.json")
+                if os.path.exists(json_path):
+                    with open(json_path, 'r', encoding='utf-8') as f:
+                        sites = json.load(f)
+                        # Just a check, logic is handled by core
+                time.sleep(0.8) # Cinematic effect
+
+        console.rule("[bold cyan]Extraction Matrix Active[/]")
+        
+        # --- ENGINE START ---
         engine = YomiCore(output_dir=out, workers=workers, debug=debug, format=format, proxy=proxy)
         engine.download_manga(url, chapter_range=chapter_range)
-        console.print("[bold green]✅ ALL DONE! Enjoy your manga.[/bold green]")
+        # --- ENGINE END ---
+
+        end_time = time.time()
+        elapsed = end_time - start_time
+        time_str = str(timedelta(seconds=int(elapsed)))
+
+        # --- C. MISSION DEBRIEF (Stats Report) ---
+        stats_grid = Table.grid(expand=True, padding=(0, 2))
+        stats_grid.add_column(style="bold white")
+        stats_grid.add_column(justify="right", style="bold green")
         
+        stats_grid.add_row("⏱️  Total Duration:", time_str)
+        stats_grid.add_row("📦  Final Format:", format.upper())
+        stats_grid.add_row("📂  Destination:", os.path.abspath(out))
+        stats_grid.add_row("✅  Mission Status:", "SUCCESS")
+        
+        console.print("")
+        console.print(Panel(
+            stats_grid,
+            title="[bold green]✨ MISSION DEBRIEF ✨[/]",
+            subtitle="[dim]System Report[/]",
+            border_style="green",
+            expand=True
+        ))
+        
+    except KeyboardInterrupt:
+        console.print("\n[bold red]⚠️  MISSION ABORTED BY USER[/]")
     except Exception as e:
-        console.print(f"[bold red]❌ Error:[/bold red] {e}")
+        console.print(Panel(
+            f"[bold red]❌ CRITICAL SYSTEM FAILURE[/]\n{str(e)}",
+            title="[bold red]ERROR[/]",
+            border_style="red",
+            expand=True
+        ))
         if debug:
             logger.exception("Traceback:")
 
-# --- 5. Available / Search Command ---
+# --- 6. Available Command (The Perfect Grid) ---
 @cli.command()
-@click.option('-s', '--search', help="Search for a manga. [dim]Ex: 'hero', 'leveling'[/]")
-@click.option('--all', 'show_all', is_flag=True, help="Show entire database (Heavy!)")
+@click.option('-s', '--search', help="Search for a manga.")
+@click.option('--all', 'show_all', is_flag=True, help="Show entire database.")
 def available(search, show_all):
     """
-    🌍 [bold]Library & Search[/]
-    
-    Browses the 'sites.json' database.
-    Default: Shows VIP/Trending manga.
-    Use --search to find specific titles.
-    Use --all to see everything (Warning: Big list).
+    🌍 [bold]Library Grid[/] - [dim]Browse the supported collection.[/]
     """
     json_path = os.path.join(os.path.dirname(__file__), "sites.json")
     
@@ -132,89 +173,106 @@ def available(search, show_all):
         with open(json_path, 'r', encoding='utf-8') as f:
             sites = json.load(f)
     except json.JSONDecodeError:
-        console.print("[bold red]❌ Error:[/bold red] sites.json is corrupted!")
+        console.print("[bold red]❌ Error:[/bold red] sites.json corrupted!")
         return
 
-    # --- ARAMA MODU (Tablo Görünümü) ---
+    # --- SEARCH MODE (List View) ---
     if search:
         search = search.lower().strip()
         results = []
-        
-        # Akıllı Puanlama Sistemi
         for key, data in sites.items():
             score = 0
             name = data.get('name', key).lower()
-            key_clean = key.replace("-", " ")
-            
-            if key == search: score = 100          # Tam Eşleşme (Slug)
-            elif name == search: score = 100       # Tam Eşleşme (İsim)
-            elif key.startswith(search): score = 80 # Başlangıç
-            elif name.startswith(search): score = 80
-            elif f" {search}" in key_clean: score = 60 # Kelime Başı
-            elif search in key: score = 20         # İçinde geçiyor
-            elif search in name: score = 20
+            if search == key: score = 100
+            elif search in key: score = 50
+            elif search in name: score = 40
             
             if score > 0:
                 results.append((score, key, data))
         
-        # Puanına göre sırala (Yüksekten düşüğe)
         results.sort(key=lambda x: x[0], reverse=True)
         
         if not results:
-            console.print(f"[red]No results found for '{search}'.[/]")
+            console.print(f"[red]No signals found for '{search}'.[/]")
             return
 
-        # Sonuçları Tabloya Bas
-        table = Table(title=f"Search Results: '{search}'", box=box.ROUNDED, border_style="blue")
-        table.add_column("Key (Use this to download)", style="cyan bold")
-        table.add_column("Name", style="white")
-        table.add_column("Domain", style="dim green")
+        table = Table(title=f"🔎 Search Results: '{search}'", box=box.SIMPLE, border_style="cyan", show_header=True)
+        table.add_column("Command Key", style="bold cyan")
+        table.add_column("Official Name", style="white")
+        table.add_column("Source Domain", style="dim")
         
         for score, key, data in results:
-            domain = data.get('base_domain', 'Unknown')
-            name = data.get('name', key.title())
-            table.add_row(key, name, domain)
-            
+            table.add_row(key, data.get('name', key.title()), data.get('base_domain', 'Unknown'))
         console.print(table)
         return
 
-    # --- VİTRİN MODU (Grid/Izgara Görünümü) ---
-    
-    # Hangi listeyi göstereceğiz?
+    # --- GRID MODE (Responsive & Symmetrical) ---
     if show_all:
         display_keys = sorted(list(sites.keys()))
         title = f"📚 Full Archive ({len(sites)} Series)"
+        color_style = "blue"
     else:
-        # Sadece VIP listede olanlar VE veritabanında mevcut olanlar
-        display_keys = sorted([k for k in sites.keys() if k in FEATURED_MANGAS])
-        # Eğer VIP'den hiçbiri yoksa rastgele ilk 24'ü al (Fallback)
-        if not display_keys:
-            display_keys = sorted(list(sites.keys()))[:24]
-        title = f"🔥 Trending & Popular ({len(display_keys)}/{len(sites)})"
-
-    # Kartları Oluştur
-    renderables = []
-    for key in display_keys:
-        data = sites.get(key, {})
-        name = data.get('name', key.replace("-", " ").title())
-        domain = data.get('base_domain', '')
+        # Featured Logic
+        display_keys = [k for k in FEATURED_MANGAS if k in sites]
         
-        # Panel İçeriği
-        content = f"[bold cyan]{name}[/]\n[dim]{domain}[/]"
-        renderables.append(
-            Panel(content, expand=True, border_style="dim blue")
-        )
+        # Fill to 24 if needed
+        if len(display_keys) < 24 and len(sites) >= 24:
+            extras = [k for k in list(sites.keys()) if k not in display_keys][:24 - len(display_keys)]
+            display_keys.extend(extras)
+            
+        display_keys = sorted(display_keys)
+        title = f"🔥 Trending Collection"
+        color_style = "magenta"
 
-    console.rule(f"[bold yellow]{title}[/]")
-    console.print(Columns(renderables, equal=True, expand=True))
+    console.rule(f"[{color_style}]{title}[/]")
+
+    # --- RESPONSIVE LAYOUT ENGINE ---
+    width = console.size.width
+    card_width = 30 # Min width per card
+    columns_count = max(1, width // card_width)
     
-    # Alt Bilgi
+    # Invisible Skeleton Table for Alignment
+    layout_table = Table(box=None, show_header=False, padding=(0, 1), expand=True)
+    for _ in range(columns_count):
+        layout_table.add_column(ratio=1)
+
+    # Chunking & Building
+    for i in range(0, len(display_keys), columns_count):
+        row_keys = display_keys[i:i + columns_count]
+        row_renderables = []
+
+        for key in row_keys:
+            data = sites.get(key, {})
+            name = data.get('name', key.replace("-", " ").title())
+            domain = data.get('base_domain', 'Unknown')
+            
+            # Smart Truncate
+            safe_len = int(width / columns_count) - 6
+            if safe_len < 15: safe_len = 15
+            
+            if len(name) > safe_len: name = name[:safe_len-3] + "..."
+            if len(domain) > safe_len: domain = domain[:safe_len-3] + "..."
+
+            # The Card
+            p = Panel(
+                f"[bold cyan]{name}[/]\n[dim white]{domain}[/]",
+                border_style=f"dim {color_style}",
+                expand=True
+            )
+            row_renderables.append(p)
+
+        # Fill empty slots
+        while len(row_renderables) < columns_count:
+            row_renderables.append(Text(""))
+
+        layout_table.add_row(*row_renderables)
+        layout_table.add_row(*[Text("") for _ in range(columns_count)]) # Spacer
+
+    console.print(layout_table)
+    
     if not show_all and len(sites) > len(display_keys):
         remaining = len(sites) - len(display_keys)
-        console.print(f"\n[dim italic]...and [bold white]{remaining}[/] more series hidden.[/]", justify="center")
-        console.print("[yellow]Tip:[/yellow] Use [bold green]yomi available --all[/] to see everything.", justify="center")
-        console.print("[yellow]Tip:[/yellow] Use [bold green]yomi available -s 'name'[/] to search.", justify="center")
-    console.print("")
+        console.print(f"\n[dim italic]...and {remaining} more series hidden. Use [bold cyan]--all[/] to unlock.[/]", justify="center")
 
 if __name__ == '__main__':
     cli()
