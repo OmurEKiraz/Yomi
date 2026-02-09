@@ -1,0 +1,42 @@
+{
+    "jagaaaaaan": {
+        "name": "jagaaaaaan",
+        "type": "dynamic",
+        "base_domain": "www.mangaread.org",
+        "test_path": "/manga/jagaaaaaan-manga/chapter-1/p/1/",
+        "url_pattern": "{mirror}/manga/jagaaaaaan-manga/chapter-{chapter}/p/{chapter}/",
+        "verified": false
+    },
+    "the-novels-extra": {
+        "name": "the-novels-extra",
+        "type": "dynamic",
+        "base_domain": "manhuaus.org",
+        "test_path": "/manga/the-novels-extra-remake/chapter-1/",
+        "url_pattern": "{mirror}/manga/the-novels-extra-remake/chapter-{chapter}/",
+        "verified": false
+    },
+    "naega-kiun-s-geupdeul": {
+        "name": "naega-kiun-s-geupdeul",
+        "type": "dynamic",
+        "base_domain": "manga18.me",
+        "test_path": "/manga/the-s-classes-that-i-raised/chapter-1",
+        "url_pattern": "{mirror}/manga/the-s-classes-that-i-raised/chapter-{chapter}",
+        "verified": false
+    },
+    "the-tutorial-is-too-tough": {
+        "name": "the-tutorial-is-too-tough",
+        "type": "dynamic",
+        "base_domain": "www.mangaread.org",
+        "test_path": "/manga/the-tutorial-is-too-hard/chapter-1/p/8/",
+        "url_pattern": "{mirror}/manga/the-tutorial-is-too-hard/chapter-{chapter}/p/8/",
+        "verified": false
+    },
+    "a-man-and-his-cat": {
+        "name": "a-man-and-his-cat",
+        "type": "dynamic",
+        "base_domain": "mangamirror.com",
+        "test_path": "/manga/25545-a-man-and-his-cat-official/chapter-1/page-1",
+        "url_pattern": "{mirror}/manga/25545-a-man-and-his-cat-official/chapter-{chapter}/page-{chapter}",
+        "verified": false
+    }
+}

@@ -3,17 +3,29 @@ import aiohttp
 import json
 import os
 import shutil
-import zipfile
 import warnings
-from functools import partial
+import time
+import zipfile
+import stat
+import logging 
 
-# --- SUSTURUCU MODU ---
+# --- SUSTURUCU BÖLÜMÜ ---
+# Kırmızı uyarı yazılarını ve kütüphane dırıltılarını kapatır
 warnings.filterwarnings("ignore")
+warnings.simplefilter('ignore')
+logging.getLogger("duckduckgo_search").setLevel(logging.CRITICAL)
+logging.getLogger("curl_cffi").setLevel(logging.CRITICAL)
+logging.getLogger("asyncio").setLevel(logging.CRITICAL)
+# DuckDuckGo versiyon uyarısını sustur
+warnings.filterwarnings("ignore", category=RuntimeWarning, module="duckduckgo_search")
+os.environ["RUST_LOG"] = "error"
 
+from bs4 import BeautifulSoup
+from duckduckgo_search import DDGS
 from rich.console import Console
-from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TimeRemainingColumn, TaskID
-from rich.table import Table
+from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TimeRemainingColumn
 
+# Core modülü import (yolu bulamazsa ekle)
 try:
     from yomi.core import YomiCore
 except ImportError:
@@ -23,311 +35,303 @@ except ImportError:
 
 console = Console()
 
-# --- AYARLAR ---
+# --- DOSYA YOLLARI ---
+
 RAW_NAMES_PATH = os.path.join("yomi", "utils", "raw-names.json")
-TARGET_DB_PATH = os.path.join("yomi", "sites.json")
-TEMP_DIR = "temp_test_zone"
+# TEST MODU: Sonuçları buraya yazar, ana veritabanını bozmaz
+TARGET_DB_PATH = os.path.join("yomi", "sites_test.json") 
+GRAVEYARD_PATH = os.path.join("yomi", "utils", "graveyard.json") 
+TEMP_DIR = "temp_aggregator_zone"
 
-# --- HIZ AYARLARI ---
-CONCURRENT_MANGAS = 20        
-GLOBAL_CONNECTION_LIMIT = 300 
+# --- PERFORMANS AYARLARI (ETHERNET POWER) ---
+CONCURRENT_TASKS = 30          # Aynı anda taranacak manga sayısı
+SEARCH_LIMIT = 2               # Bulamazsa arama motorundan kaç sonuç denesin?
+CONNECTION_TIMEOUT = 2.5       # Siteye bağlanma süresi (sn)
+GLOBAL_CONNECTION_LIMIT = 500  # Modem limiti
 
-# --- TANRI MODU HEADERS ---
-REAL_BROWSER_HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
-    "Accept-Language": "en-US,en;q=0.9",
-    "Referer": "https://google.com",
-    "DNT": "1",
-    "Upgrade-Insecure-Requests": "1"
-}
-
-_original_init = aiohttp.ClientSession.__init__
-def patched_init(self, *args, **kwargs):
-    if "headers" not in kwargs: kwargs["headers"] = {}
-    kwargs["headers"].update(REAL_BROWSER_HEADERS)
-    _original_init(self, *args, **kwargs)
-aiohttp.ClientSession.__init__ = patched_init
-
-# --- EN POPÜLER KORSAN KALIPLARI ---
+# --- GÜÇLENDİRİLMİŞ ARAMA KALIPLARI ---
+# %90 başarı oranı buradadır.
 DOMAIN_PATTERNS = [
-    # 1. Aşama: En Olası
-    "read{slug}.com", 
-    "read-{slug}.com",
-    "{slug}-manga.com",
-    "read-{slug}-manga.com",
-    "{slug}.com",
-    
-    # 2. Aşama: "Online" ve "Free"
-    "{slug}-online.com",
-    "{slug}online.com",
-    "read{slug}free.com",
-    "read-{slug}-free.com",
-    "{slug}-free.com",
-    
-    # 3. Aşama: Uzantı Değişiklikleri
-    "{slug}.net",
-    "read{slug}.net",
-    "{slug}-manga.net",
-    "{slug}.to",
-    "read{slug}.to",
-    "{slug}.gg",
-    "{slug}.org",
-    "{slug}.cc",
-    "{slug}.io",
-    "{slug}.xyz",
-    
-    # 4. Aşama: Son Çareler
-    "{slug}scans.com",
-    "manga-{slug}.com",
-    "read-{slug}-online.com",
-    "manga{slug}online.com",
-    "my{slug}.com",
-    "the{slug}.com"
+    "read{slug}.com", "read-{slug}.com", "{slug}-manga.com",
+    "{slug}.com", "{slug}manga.com", "w1.read{slug}.com"
 ]
 
-SUBDOMAINS = ["", "www"]
+# --- AKILLI SUBDOMAIN LİSTESİ ---
+# 1-6 arasını deneriz (en yaygınlar). 
+# Eğer site w36 kullanıyorsa bunu buraya yazmayız, onu Arama Motoru bulur.
+SUBDOMAINS = [
+    "", "www", 
+    "w1", "w2", "w3", "w4", "w5", "w6", 
+    "read", "chap", "manga"
+]
 
-async def check_url_exists(session, url):
-    """Hızlı HTTP Kontrolü"""
+# --- TARAYICI KİMLİĞİ ---
+REAL_BROWSER_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+}
+
+# --- YARDIMCI FONKSİYONLAR ---
+def force_delete(func, path, exc_info):
     try:
-        async with session.head(url, timeout=3, allow_redirects=True) as response:
-            if response.status == 200: return str(response.url).rstrip('/')
+        os.chmod(path, stat.S_IWRITE)
+        func(path)
+    except: pass
+
+def nuke_dir(path):
+    """Geçici klasörü zorla temizler"""
+    if os.path.exists(path):
+        try: shutil.rmtree(path, onerror=force_delete)
+        except: pass
+
+# --- AŞAMA 1: URL CANLI MI? ---
+async def check_url_basic(session, url):
+    try:
+        # Önce HEAD (Hızlı), olmazsa GET
+        async with session.head(url, timeout=CONNECTION_TIMEOUT) as resp:
+            if resp.status == 200: return str(resp.url).rstrip('/')
     except:
         try:
-            async with session.get(url, timeout=3, allow_redirects=True) as response:
-                if response.status == 200: return str(response.url).rstrip('/')
-        except:
-            pass
+            async with session.get(url, timeout=CONNECTION_TIMEOUT) as resp:
+                if resp.status == 200: return str(resp.url).rstrip('/')
+        except: pass
     return None
 
-async def verify_download_success(slug, base_url):
-    """Quality Control"""
-    # Slug içinde özel karakter varsa temizle (dosya sistemi hatası olmasın)
-    safe_slug = "".join([c for c in slug if c.isalnum() or c in ('-','_')])
-    task_temp_dir = os.path.join(TEMP_DIR, safe_slug)
-
-    if os.path.exists(task_temp_dir):
-        try: shutil.rmtree(task_temp_dir)
-        except: pass
-    os.makedirs(task_temp_dir, exist_ok=True)
-
+# --- AŞAMA 2: İÇERİK ANALİZİ (HTML) ---
+async def pre_validate_content(session, url, slug):
+    """
+    İndirmeden önce siteye girip 'Bu bir manga sitesi mi?' diye bakar.
+    """
     try:
-        core = YomiCore(output_dir=task_temp_dir, debug=False, format="cbz")
-        if hasattr(core, 'headers') and isinstance(core.headers, dict):
-            core.headers.update(REAL_BROWSER_HEADERS)
+        async with session.get(url, timeout=5) as resp:
+            if resp.status != 200: return False
+            
+            html = await resp.text()
+            soup = BeautifulSoup(html, 'html.parser')
+            text_content = soup.get_text().lower()
+            
+            # Cloudflare engeli veya boş sayfa kontrolü
+            if "just a moment" in text_content or "challenge" in text_content: return False
+            if "chapter" not in text_content and "vol" not in text_content: return False
 
-        temp_config = {
-            slug: {
-                "name": slug.title().replace("-", " "),
-                "type": "static", 
-                "url": base_url + "/manga/" + slug
+            # Başlıkta manga adı geçiyor mu?
+            page_title = soup.title.string.lower() if soup.title else ""
+            clean_slug_name = slug.replace("-", " ")
+            
+            if clean_slug_name not in page_title and slug not in page_title: return False
+
+            return True
+    except: return False
+
+# --- AŞAMA 3: İNDİRME TESTİ (KESİN KANIT) ---
+async def verify_download_success(slug, base_url, verify_sem):
+    async with verify_sem: # Disk koruması için limitli
+        safe_slug = "".join([c for c in slug if c.isalnum() or c in ('-','_')])
+        task_temp_dir = os.path.join(TEMP_DIR, safe_slug)
+        nuke_dir(task_temp_dir)
+        os.makedirs(task_temp_dir, exist_ok=True)
+
+        success = False
+        core = None
+        try:
+            # YomiCore loglarını sustur
+            logging.getLogger("YomiCore").setLevel(logging.CRITICAL)
+            
+            core = YomiCore(output_dir=task_temp_dir, debug=False, format="cbz")
+            core.console.quiet = True 
+            
+            # Dinamik Config
+            temp_config = {
+                slug: {
+                    "name": slug.title().replace("-", " "),
+                    "type": "static", 
+                    "url": base_url 
+                }
             }
-        }
-        core.sites_config.update(temp_config)
-    except Exception: return False
-
-    success = False
-    try:
-        await core._download_manga_async(slug, chapter_range="1-1")
-        for root, dirs, files in os.walk(task_temp_dir):
-            for file in files:
-                if file.endswith(".cbz"):
-                    try:
+            core.sites_config.update(temp_config)
+            
+            # İNDİR (Output vermeden)
+            await core._download_manga_async(slug, chapter_range="1-1")
+            
+            # KONTROL (XML veya Resim var mı?)
+            for root, _, files in os.walk(task_temp_dir):
+                for file in files:
+                    if file.endswith(".cbz"):
                         with zipfile.ZipFile(os.path.join(root, file), 'r') as z:
                             file_list = z.namelist()
                             has_xml = "ComicInfo.xml" in file_list
-                            image_count = sum(1 for f in file_list if f.lower().endswith(('.jpg', '.jpeg', '.png', '.webp')))
-                            if (has_xml and image_count > 0) or (image_count > 3):
+                            img_count = sum(1 for f in file_list if f.lower().endswith(('jpg','jpeg','png','webp')))
+                            
+                            if (has_xml and img_count > 0) or (img_count > 2):
                                 success = True
-                    except Exception: pass
-    except Exception: pass
-    
-    if hasattr(core, 'db') and core.db:
-        try: core.db.close(); del core.db
         except: pass
-    
-    await asyncio.sleep(0.1)
-    if os.path.exists(task_temp_dir):
-        try: shutil.rmtree(task_temp_dir)
-        except: pass
+        
+        # Temizlik
+        if core and hasattr(core, 'db'):
+            try: core.db.close()
+            except: pass
+        nuke_dir(task_temp_dir)
+        return success
 
-    return success
+# --- ARAMA MOTORU (DuckDuckGo) ---
+def search_web(query, limit=2):
+    try:
+        # Arka planda arama yapar (w36 vb. bulmak için)
+        results = DDGS().text(query, max_results=limit)
+        return [r['href'] for r in results]
+    except: return []
 
-async def process_single_manga(session, original_slug, existing_sites, progress, task_id, stats):
-    # Eğer zaten bulunduysa hiç uğraşma
-    if original_slug in existing_sites:
-        progress.advance(task_id)
+# --- ANA İŞLEM DÖNGÜSÜ ---
+async def process_manga(session, original_slug, existing, graveyard, progress, main_task, stats, verify_sem):
+    if original_slug in existing or original_slug in graveyard:
+        progress.advance(main_task)
         return
 
-    # --- AKILLI VARYASYON MOTORU ---
-    # Burada türetilen her şey sadece DENEME amaçlıdır.
-    # Veritabanına yine original_slug (raw-names.json'daki isim) ile kaydedilir.
-    variations = [original_slug] 
+    progress.update(main_task, description=f"[cyan]Hunting:[/cyan] {original_slug}")
     
-    # 1. Tireleri kaldır (jujutsukaisen)
-    no_dash = original_slug.replace("-", "")
-    if no_dash != original_slug:
-        variations.append(no_dash)
+    found_entry = None
+    candidate_urls = []
+
+    # 1. YÖNTEM: Kalıp ve Subdomain Tahmini (Hızlı)
+    clean = original_slug.replace("-", "")
+    vars = [original_slug, clean]
+    
+    for v in vars:
+        for ptr in DOMAIN_PATTERNS:
+            base_domain = ptr.format(slug=v)
+            for sub in SUBDOMAINS:
+                prefix = f"{sub}." if sub else ""
+                url = f"https://{prefix}{base_domain}"
+                candidate_urls.append(url)
+
+    # Tahmin edilen URL'leri kontrol et
+    valid_candidates = []
+    for url in candidate_urls:
+        if found_entry: break
+        # Önce URL yaşıyor mu diye bak (Hızlı)
+        if await check_url_basic(session, url):
+            # Sonra içeriği manga mı diye bak (Orta)
+            if await pre_validate_content(session, url, original_slug):
+                valid_candidates.append(url)
+                break # İlk bulduğun geçerli adayı al ve teste git
+
+    # 2. YÖNTEM: Arama Motoru (Eğer tahmin tutmazsa)
+    if not valid_candidates:
+        progress.update(main_task, description=f"[yellow]Web Search:[/yellow] {original_slug}")
+        await asyncio.sleep(0.5) # Rate limit yememek için bekleme
+        loop = asyncio.get_running_loop()
+        query = f"read {original_slug.replace('-', ' ')} manga chapter 1 online"
+        web_links = await loop.run_in_executor(None, search_web, query, SEARCH_LIMIT)
         
-    # 2. Kısaltma / Akrostiş (attack-on-titan -> aot)
-    parts = original_slug.split("-")
-    if len(parts) > 1:
-        acronym = "".join([p[0] for p in parts if p])
-        if len(acronym) >= 2: # En az 2 harfli olsun
-            variations.append(acronym)
+        for link in web_links:
+            if await pre_validate_content(session, link, original_slug):
+                valid_candidates.append(link)
+
+    # 3. YÖNTEM: İndirme Testi (En son ve en kesin)
+    for valid_url in valid_candidates:
+        if found_entry: break
+        
+        # URL'yi temizle (chapter kısmını at)
+        base_test_url = valid_url
+        if "/chapter" in valid_url:
+            base_test_url = valid_url.split("/chapter")[0]
+        
+        progress.update(main_task, description=f"[blue]Verifying:[/blue] {original_slug}")
+        
+        # İNDİRİP BAK
+        if await verify_download_success(original_slug, base_test_url, verify_sem):
+            parsed_domain = valid_url.split("//")[1].split("/")[0].replace("www.", "")
             
-    # 3. İlk Kelime (jujutsu-kaisen -> jujutsu)
-    if len(parts) > 1 and len(parts[0]) > 3:
-        variations.append(parts[0])
-
-    manga_solved = False
-    
-    try:
-        # Önce varyasyonları dön (aot, attackontitan...)
-        for current_slug_variant in variations:
-            if manga_solved: break
+            url_pattern = "{mirror}/chapter-{chapter}"
+            if "/manga/" in valid_url:
+                url_pattern = "{mirror}/manga/" + original_slug + "/chapter-{chapter}"
             
-            # Sonra her varyasyon için domain kalıplarını dön
-            for domain_ptr in DOMAIN_PATTERNS:
-                if manga_solved: break
+            found_entry = {
+                "name": original_slug.title().replace("-", " "),
+                "type": "dynamic",
+                "base_domain": parsed_domain,
+                "url": base_test_url,
+                "url_pattern": url_pattern,
+                "verified": True
+            }
 
-                # Burada varyasyonu url içine gömüyoruz
-                base_domain_raw = domain_ptr.format(slug=current_slug_variant).strip().lower()
-                
-                # RADAR: Kullanıcıya hangi varyasyonu denediğimizi gösterelim
-                progress.update(task_id, description=f"[bold blue]{original_slug}[/] [dim yellow]→ {base_domain_raw}[/]")
-
-                # Subdomain Taraması
-                tasks = []
-                for sub in SUBDOMAINS:
-                    prefix = f"{sub}." if sub else ""
-                    candidate_url = f"https://{prefix}{base_domain_raw}"
-                    tasks.append(check_url_exists(session, candidate_url))
-                
-                results = await asyncio.gather(*tasks, return_exceptions=True)
-                
-                real_url = None
-                for r in results:
-                    if isinstance(r, str) and r:
-                        real_url = r
-                        break
-
-                if real_url:
-                    progress.console.print(f"   🔎 [cyan]Hit:[/cyan] [bold]{real_url}[/bold] (Quality Check...)")
-                    
-                    # İndirme testini de bulunan varyasyonla yapıyoruz
-                    # Amaç: Sitenin çalıştığını doğrulamak
-                    is_perfect = await verify_download_success(current_slug_variant, real_url)
-
-                    if is_perfect:
-                        parsed_domain = real_url.split("//")[1].split("/")[0].replace("www.", "")
-                        if parsed_domain.startswith("w") and len(parsed_domain) > 3 and parsed_domain[1].isdigit() and "." in parsed_domain:
-                                parsed_domain = parsed_domain.split(".", 1)[1]
-
-                        new_entry = {
-                            "name": original_slug.title().replace("-", " "), # İsim orijinal kalır
-                            "type": "dynamic",
-                            "base_domain": parsed_domain,
-                            "test_path": f"/manga/{current_slug_variant}-chapter-1", # Test yolu varyasyona göre olabilir
-                            "url_pattern": "{mirror}/manga/" + current_slug_variant + "-chapter-{chapter}" # Pattern varyasyonlu olmalı
-                        }
-                        
-                        # --- KRİTİK NOKTA ---
-                        # Bulunan site 'jjk' olsa bile, biz onu 'jujutsu-kaisen' anahtarına kaydediyoruz.
-                        existing_sites[original_slug] = new_entry
-                        stats["added"].append(original_slug)
-                        
-                        try:
-                            with open(TARGET_DB_PATH, 'w', encoding='utf-8') as f:
-                                json.dump(existing_sites, f, indent=2)
-                        except: pass
-                        
-                        progress.console.print(f"   ✅ [bold green]CAPTURED:[/bold green] [white]{original_slug}[/white] [dim](via {current_slug_variant})[/dim]")
-                        manga_solved = True
-                    else:
-                        progress.console.print(f"   🗑️  [dim red]Trash Site:[/dim red] {base_domain_raw}")
-
-    except Exception: pass
-
-    if not manga_solved:
-        stats["failed"].append(original_slug)
+    # SONUÇ KAYDI
+    if found_entry:
+        existing[original_slug] = found_entry
+        # Anlık kaydet (Elektrik gitse bile kaybolmasın)
+        try:
+            with open(TARGET_DB_PATH, 'w', encoding='utf-8') as f:
+                json.dump(existing, f, indent=2)
+        except: pass
+            
+        stats["added"] += 1
+        progress.console.print(f"   ✅ [bold green]SECURED:[/bold green] {original_slug} -> [dim]{found_entry['base_domain']}[/dim]")
+    else:
+        graveyard[original_slug] = "dead"
+        stats["failed"] += 1
+        # Her 20 başarısızda bir kaydet
+        if len(graveyard) % 20 == 0:
+            try:
+                with open(GRAVEYARD_PATH, 'w', encoding='utf-8') as f:
+                    json.dump(graveyard, f, indent=2)
+            except: pass
     
-    # İş bitince barı eski haline getir
-    progress.update(task_id, description=f"[bold blue]Scanning Library...[/]")
-    progress.advance(task_id)
+    progress.advance(main_task)
 
 async def main():
-    console.rule("[bold red]YOMI AGGREGATOR (SMART VARIANT ENGINE)[/]")
-    console.print(f"[yellow]Loadout:[/yellow] Smart permutation engine active.")
+    console.rule("[bold red]YOMI AGGREGATOR v9 (RESURRECTION)[/]")
+    console.print(f"[yellow]Mode:[/yellow] Enhanced Subdomains (w1-w6) + Smart Search | [yellow]Threads:[/yellow] {CONCURRENT_TASKS}")
+
+    nuke_dir(TEMP_DIR)
+    os.makedirs(TEMP_DIR, exist_ok=True)
     
-    if not os.path.exists(RAW_NAMES_PATH): return
-    with open(RAW_NAMES_PATH, 'r', encoding='utf-8') as f: raw_names = json.load(f)
-
-    existing_sites = {}
-    if os.path.exists(TARGET_DB_PATH):
-        try:
-            with open(TARGET_DB_PATH, 'r', encoding='utf-8') as f: existing_sites = json.load(f)
-        except: pass
-
-    stats = {"added": [], "failed": []}
-
-    # Zaten bulunanları atla (4700'deysen sadece kalanlara bakar)
-    pending_mangas = [slug for slug in raw_names if slug not in existing_sites]
+    if not os.path.exists(RAW_NAMES_PATH): 
+        console.print("[red]Hata: raw-names.json bulunamadı![/]")
+        return
     
-    console.print(f"[cyan]Database:[/cyan] {len(existing_sites)} found. [yellow]Scanning remaining:[/yellow] {len(pending_mangas)}")
-
-    connector = aiohttp.TCPConnector(limit=GLOBAL_CONNECTION_LIMIT, ttl_dns_cache=600)
+    def load(p): return json.load(open(p, 'r', encoding='utf-8')) if os.path.exists(p) else {}
     
-    async with aiohttp.ClientSession(connector=connector) as session:
-        try:
-            with Progress(
-                SpinnerColumn(),
-                TextColumn("{task.description}"), 
-                BarColumn(),
-                TextColumn("{task.completed}/{task.total}"),
-                TimeRemainingColumn(),
-                transient=False
-            ) as progress:
-                
-                main_task = progress.add_task("[bold blue]Scanning Library...", total=len(pending_mangas))
-                sem = asyncio.Semaphore(CONCURRENT_MANGAS)
+    raw_names = load(RAW_NAMES_PATH)
+    existing = load(TARGET_DB_PATH)
+    graveyard = load(GRAVEYARD_PATH)
+    
+    # Graveyard silindiği için raw_names'deki her şeye tekrar bakacak (mevcutlar hariç)
+    queue = [s for s in raw_names if s not in existing and s not in graveyard]
+    
+    console.print(f"[green]Database:[/green] {len(existing)} | [dim]Graveyard:[/dim] {len(graveyard)} | [cyan]Queue:[/cyan] [bold white]{len(queue)}[/bold white]")
+    
+    connector = aiohttp.TCPConnector(limit=GLOBAL_CONNECTION_LIMIT, ttl_dns_cache=300)
+    stats = {"added": 0, "failed": 0}
+    
+    main_sem = asyncio.Semaphore(CONCURRENT_TASKS)
+    verify_sem = asyncio.Semaphore(5) # Disk yazma limiti (PC donmasın diye)
 
-                async def worker(slug):
-                    async with sem:
-                        try:
-                            await process_single_manga(session, slug, existing_sites, progress, main_task, stats)
-                        except Exception:
-                            progress.advance(main_task)
+    async with aiohttp.ClientSession(connector=connector, headers=REAL_BROWSER_HEADERS) as session:
+        with Progress(
+            SpinnerColumn(), TextColumn("{task.description}"), BarColumn(),
+            TextColumn("{task.completed}/{task.total}"), TimeRemainingColumn()
+        ) as progress:
+            main_task = progress.add_task("Hunting...", total=len(queue))
+            
+            async def worker(slug):
+                async with main_sem:
+                    await process_manga(session, slug, existing, graveyard, progress, main_task, stats, verify_sem)
+            
+            tasks = [worker(slug) for slug in queue]
+            await asyncio.gather(*tasks)
 
-                tasks = [worker(slug) for slug in pending_mangas]
-                await asyncio.gather(*tasks, return_exceptions=True)
-        
-        finally:
-            await asyncio.sleep(2.0)
-            await session.close()
-
-    if os.path.exists(TEMP_DIR):
-        try: shutil.rmtree(TEMP_DIR)
-        except: pass
-
-    console.rule("[bold green]FINAL REPORT[/]")
-    table = Table(title=f"Results (New Additions)")
-    table.add_column("Status", style="bold")
-    table.add_column("Count", justify="right")
-    table.add_row("[green]ADDED NEW[/]", str(len(stats["added"])))
-    table.add_row("[red]STILL MISSING[/]", str(len(stats["failed"])))
-    console.print(table)
+    # Son temizlik
+    with open(GRAVEYARD_PATH, 'w', encoding='utf-8') as f: json.dump(graveyard, f, indent=2)
+    nuke_dir(TEMP_DIR)
+    
+    console.rule("[bold green]SESSION COMPLETE[/]")
+    console.print(f"Captured: {stats['added']}")
+    console.print(f"Dead: {stats['failed']}")
 
 if __name__ == "__main__":
     if os.name == 'nt':
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-    
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
     try:
-        loop.run_until_complete(main())
+        asyncio.run(main())
     except KeyboardInterrupt:
-        print("\n🛑 Stopped.")
-    finally:
-        loop.close()
+        nuke_dir(TEMP_DIR)
