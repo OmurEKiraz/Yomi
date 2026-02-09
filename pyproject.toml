@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "yomi-core"
-version = "0.1.0"
+version = "0.1.1"
 description = "The Universal Hybrid-Engine Manga Downloader"
 readme = "README.md"
 authors = [
@@ -36,7 +36,9 @@ dependencies = [
     "rich-click",
     "curl_cffi",
     "Pillow",
-    "img2pdf"
+    "img2pdf",
+    "fastapi",
+    "uvicorn"
 ]
 
 [project.urls]

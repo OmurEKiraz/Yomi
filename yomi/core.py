@@ -34,8 +34,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger("YomiCore")
 
-REMOTE_DB_URL = "https://raw.githubusercontent.com/OmurEKiraz/yomi-core/main/yomi/sites.json"
-
 class YomiCore:
     def __init__(self, output_dir: str = "downloads", workers: int = 8, debug: bool = False, format: str = "folder", proxy: str = None):
         self.output_dir = output_dir
@@ -57,83 +55,99 @@ class YomiCore:
 
     def _load_sites_config(self) -> dict:
         config = {}
-        try:
-            if self.debug: logger.debug(f"Fetch remote DB: {REMOTE_DB_URL}")
-            response = requests.get(REMOTE_DB_URL, timeout=3) 
-            if response.status_code == 200:
-                config.update(response.json())
-        except Exception: pass
-
-        if not config:
-            base_dir = os.path.dirname(__file__)
-            local_path = os.path.join(base_dir, "sites.json")
-            if os.path.exists(local_path):
-                try:
-                    with open(local_path, "r", encoding="utf-8") as f:
-                        config.update(json.load(f))
-                except Exception as e:
-                    logger.error(f"❌ Critical: Failed to load local database: {e}")
+        # ÖNCE YEREL DOSYAYA BAK (Remote'u devre dışı bıraktık ki GitHub karışmasın)
+        base_dir = os.path.dirname(__file__)
+        local_path = os.path.join(base_dir, "sites.json")
+        
+        if os.path.exists(local_path):
+            try:
+                with open(local_path, "r", encoding="utf-8") as f:
+                    config.update(json.load(f))
+                if self.debug: logger.info(f"Loaded local DB: {len(config)} sites")
+            except Exception as e:
+                logger.error(f"❌ Critical: Failed to load local database: {e}")
+        else:
+            logger.error("❌ Critical: sites.json not found in package directory!")
+            
         return config
 
+    def _calculate_score(self, query: str, target: str) -> float:
+        """
+        Gelişmiş Skorlama Algoritması:
+        Tireleri, boşlukları ve büyük/küçük harfi yok sayar.
+        """
+        if not target: return 0
+        
+        # 1. Normalizasyon (Tireleri boşluk yap, küçük harfe çevir)
+        q_norm = query.lower().replace("-", " ").strip()
+        t_norm = target.lower().replace("-", " ").strip()
+        
+        # 2. Tam Kapsama (Substring)
+        # Örn: "after ten" -> "after ten millennia..." içindeyse
+        if q_norm in t_norm:
+            return 95.0  # Neredeyse kesin eşleşme
+            
+        # 3. Kelime Bazlı Eşleşme (Word Intersection)
+        q_words = set(q_norm.split())
+        t_words = set(t_norm.split())
+        common_words = q_words.intersection(t_words)
+        
+        word_score = 0
+        if len(common_words) > 0:
+            # Ortak kelime sayısı / Aranan kelime sayısı
+            # Yani "after" ve "ten" yazdıysam ve ikisi de varsa %100 kelime skoru
+            word_score = (len(common_words) / len(q_words)) * 80
+            
+        # 4. Harf Benzerliği (Typos için)
+        fuzzy_score = SequenceMatcher(None, q_norm, t_norm).ratio() * 100
+        
+        return max(word_score, fuzzy_score)
+
     async def _resolve_target(self, input_str: str, for_download=False):
-        """
-        Zeki Arama ve Etkileşimli Menü
-        """
         if input_str.startswith("http"): return input_str
         
-        clean_input = unquote(input_str).strip().lower()
+        # Input temizliği
+        clean_input = unquote(input_str).strip()
         target_key = None
         
-        # 1. Tam Eşleşme (Direct Hit)
+        # 1. Tam Eşleşme Kontrolü
         if clean_input in self.sites_config:
             target_key = clean_input
         else:
-            # 2. Fuzzy Search (Akıllı Arama)
+            # 2. Akıllı Arama
             matches = []
             for key, data in self.sites_config.items():
                 site_name = data.get('name', '').lower()
                 
-                # Benzerlik Puanı Hesapla
-                ratio_key = SequenceMatcher(None, clean_input, key).ratio()
-                ratio_name = SequenceMatcher(None, clean_input, site_name).ratio()
-                score = max(ratio_key, ratio_name) * 100 
+                # Hem Key'e (slug) hem Name'e (başlık) göre skor al
+                score_key = self._calculate_score(clean_input, key)
+                score_name = self._calculate_score(clean_input, site_name)
                 
-                # TORPİL SİSTEMİ: Eğer aranan kelime ile başlıyorsa puanı artır
-                # Örn: "re" arayınca "reincarnator" öne geçsin diye.
-                if key.startswith(clean_input) or site_name.startswith(clean_input):
-                    score += 30 # Başlangıç bonusu
+                # Hangisi yüksekse onu al
+                final_score = max(score_key, score_name)
                 
-                # Kelime içinde geçiyorsa ufak bonus
-                elif clean_input in key or clean_input in site_name:
-                    score += 15
+                # Eşik değer: %45 (Daha toleranslı)
+                if final_score > 45: 
+                    matches.append((final_score, key, data['name']))
 
-                if score > 100: score = 100 # Tavana vurmasın
-                
-                # Eşik değer: %40 (Bonuslarla beraber 40'ı geçmeli)
-                if score > 40: matches.append((score, key, data['name']))
-
-            # Puana göre sırala
             matches.sort(key=lambda x: x[0], reverse=True)
             
             if not matches: 
-                return input_str 
+                print(f"❌ '{input_str}' veritabanında bulunamadı.")
+                return None
             
-            # --- MENÜ MANTIĞI (RESTORED) ---
-            # Eğer %95 ve üzeri kesinlik varsa sormadan indir.
-            # Yoksa (veya birden fazla seçenek varsa) kullanıcıya sor.
-            
-            if matches[0][0] >= 95:
+            # --- SEÇİM MANTIĞI ---
+            # Eğer skor çok yüksekse (>85) sormadan seç
+            if matches[0][0] >= 85:
                 self.console.print(f"✨ Auto-Match: [bold green]{matches[0][2]}[/] (Confidence: {int(matches[0][0])}%)")
                 target_key = matches[0][1]
             else:
-                # Tablo oluştur
                 self.console.print(f"\n🔍 Ambiguous input '[bold yellow]{input_str}[/]'. Did you mean one of these?")
                 table = Table(show_header=True, header_style="bold magenta")
                 table.add_column("#", style="cyan", justify="right", width=4)
                 table.add_column("Site Name", style="white")
                 table.add_column("Match", justify="right", style="green")
 
-                # İlk 5 sonucu göster
                 display_count = min(5, len(matches))
                 for i in range(display_count):
                     score, key, name = matches[i]
@@ -141,15 +155,9 @@ class YomiCore:
 
                 self.console.print(table)
                 
-                # Kullanıcıya sor
-                choices = [str(i) for i in range(display_count + 1)] # 0..5
+                choices = [str(i) for i in range(display_count + 1)]
                 try:
-                    selected = IntPrompt.ask(
-                        "Select number (0 to cancel)", 
-                        choices=choices, 
-                        default=1,
-                        show_choices=False
-                    )
+                    selected = IntPrompt.ask("Select number (0 to cancel)", choices=choices, default=1, show_choices=False)
                 except KeyboardInterrupt:
                     return None
 
@@ -159,32 +167,30 @@ class YomiCore:
                 
                 target_key = matches[selected - 1][1]
 
-        # --- ÇÖZÜMLEME (Resolution) ---
+        # --- ÇÖZÜMLEME ---
         site_data = self.sites_config[target_key]
         site_type = site_data.get("type", "static")
         
         if site_type == "dynamic" and MirrorHunter:
             print(f"🌍 Auto-Discovery: Resolving '{target_key}'...")
             test_path = site_data.get("test_path", "/")
-            safe_test_path = test_path.replace("{chapter}", "1")
+            safe_test_path = test_path.replace("{chapter}", "1").replace("{chapter", "1")
             
             hunter = MirrorHunter(debug=self.debug)
             active_mirror = await hunter.find_active_mirror(site_data["base_domain"], test_path=safe_test_path)
             
             if active_mirror:
                 print(f"✅ TARGET LOCKED: {active_mirror}")
-                
                 if "url_pattern" in site_data:
                     full_pattern = site_data["url_pattern"].replace("{mirror}", active_mirror)
-                    # Bölüm Listesi URL'i Temizle
                     list_url = full_pattern
-                    for junk in ["-chapter-{chapter}", "chapter-{chapter}", "-{chapter}", "{chapter}"]:
+                    # Temizlik
+                    for junk in ["-chapter-{chapter}", "chapter-{chapter}", "-{chapter}", "{chapter}", "{chapter"]:
                         if junk in list_url:
                             list_url = list_url.replace(junk, "")
                             break
                     if list_url.endswith("-"): list_url = list_url[:-1]
                     return list_url
-                
                 return active_mirror
             else:
                 print(f"❌ ERROR: Could not resolve mirror for {target_key}")

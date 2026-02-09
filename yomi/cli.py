@@ -58,6 +58,17 @@ def cli():
     """
     pass
 
+@click.command()
+def api():
+    """Starts the Yomi API Bridge for external apps (like Flutter)"""
+    from .api import start_api
+    console.print("[bold magenta]🚀 Yomi API Bridge starting on http://127.0.0.1:8000[/]")
+    start_api()
+
+# cli.py'deki ana gruba ekle:
+cli.add_command(api)
+
+
 # --- 5. Download Command ---
 @cli.command()
 @click.option('-u', '--url', required=True, help="Target URL or Manga Name (Slug).")
