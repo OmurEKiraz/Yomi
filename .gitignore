@@ -17,6 +17,7 @@ dist/
 downloads/
 history.db
 *.log
+mirrors_cache.json
 temp-test-zone/
 
 # IDEs

@@ -3,127 +3,127 @@
     "name": "20 Seiki Shounen",
     "type": "dynamic",
     "base_domain": "20seikishounen.com",
-    "test_path": "/manga/20seikishounen-chapter-1",
-    "url_pattern": "{mirror}/manga/20seikishounen-chapter-{chapter}"
+    "test_path": "/manga/20-seiki-shounen-chapter-1",
+    "url_pattern": "{mirror}/manga/20-seiki-shounen-chapter-{chapter}"
   },
   "a-business-proposal": {
     "name": "A Business Proposal",
     "type": "dynamic",
     "base_domain": "abp.org",
-    "test_path": "/manga/abp-chapter-1",
-    "url_pattern": "{mirror}/manga/abp-chapter-{chapter}"
+    "test_path": "/manga/a-business-proposal-chapter-1",
+    "url_pattern": "{mirror}/manga/a-business-proposal-chapter-{chapter}"
   },
   "absolute-regression": {
     "name": "Absolute Regression",
     "type": "dynamic",
     "base_domain": "absolute-regression.xyz",
-    "test_path": "/manga/absolute-regression-chapter-1",
-    "url_pattern": "{mirror}/manga/absolute-regression-chapter-{chapter}"
+    "test_path": "/manga/absolute-regression-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/absolute-regression-chapter-{chapter/"
   },
   "after-ten-millennia-in-hell": {
     "name": "After Ten Millennia In Hell",
     "type": "dynamic",
     "base_domain": "aftertenmillenniainhell.com",
-    "test_path": "/manga/after-ten-millennia-in-hell-chapter-1",
-    "url_pattern": "{mirror}/manga/after-ten-millennia-in-hell-chapter-{chapter}"
+    "test_path": "/manga/after-ten-millennia-in-hell-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/after-ten-millennia-in-hell-chapter-{chapter/"
   },
   "aishiteru-game-wo-owarasetai": {
     "name": "Aishiteru Game Wo Owarasetai",
     "type": "dynamic",
     "base_domain": "aishiterugamewoowarasetai.com",
-    "test_path": "/manga/aishiterugamewoowarasetai-chapter-1",
-    "url_pattern": "{mirror}/manga/aishiterugamewoowarasetai-chapter-{chapter}"
+    "test_path": "/manga/aishiteru-game-wo-owarasetai-chapter-1",
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   },
   "akagami-no-shirayuki-hime": {
     "name": "Akagami No Shirayuki Hime",
     "type": "dynamic",
     "base_domain": "akagaminoshirayukihime.com",
-    "test_path": "/manga/akagaminoshirayukihime-chapter-1",
-    "url_pattern": "{mirror}/manga/akagaminoshirayukihime-chapter-{chapter}"
+    "test_path": "/manga/akagami-no-shirayukihime-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/akagami-no-shirayukihime-chapter-{chapter/"
   },
   "akane-banashi": {
     "name": "Akane Banashi",
     "type": "dynamic",
     "base_domain": "akanebanashi.com",
-    "test_path": "/manga/akane-banashi-chapter-1",
-    "url_pattern": "{mirror}/manga/akane-banashi-chapter-{chapter}"
+    "test_path": "/manga/akane-banashi-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/akane-banashi-chapter-{chapter/"
   },
   "akatsuki-no-yona": {
     "name": "Akatsuki No Yona",
     "type": "dynamic",
     "base_domain": "akatsukinoyona.com",
-    "test_path": "/manga/akatsuki-no-yona-chapter-1",
-    "url_pattern": "{mirror}/manga/akatsuki-no-yona-chapter-{chapter}"
+    "test_path": "/comic/akatsuki-no-yona-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/akatsuki-no-yona-chapter-{chapter/"
   },
   "alice-in-borderland": {
     "name": "Alice In Borderland",
     "type": "dynamic",
     "base_domain": "alice-in-borderland.com",
-    "test_path": "/manga/alice-in-borderland-chapter-1",
-    "url_pattern": "{mirror}/manga/alice-in-borderland-chapter-{chapter}"
+    "test_path": "/manga/alice-in-borderland-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/alice-in-borderland-chapter-{chapter/"
   },
   "am-i-actually-the-strongest": {
     "name": "Am I Actually The Strongest",
     "type": "dynamic",
     "base_domain": "amiactuallythestrongest.com",
-    "test_path": "/manga/am-i-actually-the-strongest-chapter-1",
-    "url_pattern": "{mirror}/manga/am-i-actually-the-strongest-chapter-{chapter}"
+    "test_path": "/manga/am-i-actually-the-strongest-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/am-i-actually-the-strongest-chapter-{chapter/"
   },
   "ao-haru-ride": {
     "name": "Ao Haru Ride",
     "type": "dynamic",
     "base_domain": "bstw.aoharuride.com",
-    "test_path": "/manga/aoharuride-chapter-1",
-    "url_pattern": "{mirror}/manga/aoharuride-chapter-{chapter}"
+    "test_path": "/manga/ao-haru-ride-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/ao-haru-ride-chapter-{chapter/"
   },
   "ao-no-hako": {
     "name": "Ao No Hako",
     "type": "dynamic",
     "base_domain": "aonohako.com",
-    "test_path": "/manga/ao-no-hako-chapter-1",
-    "url_pattern": "{mirror}/manga/ao-no-hako-chapter-{chapter}"
+    "test_path": "/manga/ao-no-hako-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/ao-no-hako-chapter-{chapter/"
   },
   "assassination-classroom": {
     "name": "Assassination Classroom",
     "type": "dynamic",
     "base_domain": "assassination-classroom.org",
-    "test_path": "/manga/assassination-classroom-chapter-1",
-    "url_pattern": "{mirror}/manga/assassination-classroom-chapter-{chapter}"
+    "test_path": "/comic/assassination-classroom-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/assassination-classroom-chapter-{chapter/"
   },
   "attack-on-titan": {
     "name": "Attack On Titan",
     "type": "dynamic",
     "base_domain": "attack-on-titan.com",
-    "test_path": "/manga/attack-on-titan-chapter-1",
-    "url_pattern": "{mirror}/manga/attack-on-titan-chapter-{chapter}"
+    "test_path": "/manga/attack-on-titan-vol-3-ch-9-{chapter-special-chapter-lance-corporal-rivaille/",
+    "url_pattern": "{mirror}/manga/attack-on-titan-vol-3-ch-9-{chapter-special-chapter-lance-corporal-rivaille/"
   },
   "bad-company": {
     "name": "Bad Company",
     "type": "dynamic",
     "base_domain": "bc-manga.com",
-    "test_path": "/manga/bc-chapter-1",
-    "url_pattern": "{mirror}/manga/bc-chapter-{chapter}"
+    "test_path": "/manga/black-clover-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/black-clover-chapter-{chapter/"
   },
   "baki-rahen": {
     "name": "Baki Rahen",
     "type": "dynamic",
     "base_domain": "bakirahen.com",
-    "test_path": "/manga/baki-rahen-chapter-1",
-    "url_pattern": "{mirror}/manga/baki-rahen-chapter-{chapter}"
+    "test_path": "/manga/baki-rahen-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/baki-rahen-chapter-{chapter/"
   },
   "barbarian-quest": {
     "name": "Barbarian Quest",
     "type": "dynamic",
     "base_domain": "barbarianquestmanga.com",
-    "test_path": "/manga/barbarian-quest-chapter-1",
-    "url_pattern": "{mirror}/manga/barbarian-quest-chapter-{chapter}"
+    "test_path": "/manga/barbarian-quest-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/barbarian-quest-chapter-{chapter/"
   },
   "beastars": {
     "name": "Beastars",
     "type": "dynamic",
     "base_domain": "beastarsmanga.com",
-    "test_path": "/manga/beastars-chapter-1",
-    "url_pattern": "{mirror}/manga/beastars-chapter-{chapter}"
+    "test_path": "/manga/59241-beastars-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/59241-beastars-chapter-{chapter/"
   },
   "berserk": {
     "name": "Berserk",
@@ -132,110 +132,117 @@
     "test_path": "/manga/berserk-chapter-1",
     "url_pattern": "{mirror}/manga/berserk-chapter-{chapter}"
   },
+  "berserk-of-gluttony": {
+    "name": "Berserk Of Gluttony",
+    "type": "dynamic",
+    "base_domain": "berserk-manga.com",
+    "test_path": "/manga/berserk-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/berserk-chapter-{chapter/"
+  },
   "berserk-shinen-no-kami-2": {
     "name": "Berserk Shinen No Kami 2",
     "type": "dynamic",
     "base_domain": "berserk-manga.com",
-    "test_path": "/manga/berserk-chapter-1",
-    "url_pattern": "{mirror}/manga/berserk-chapter-{chapter}"
+    "test_path": "/manga/berserk-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/berserk-chapter-{chapter/"
   },
   "berserk-the-prototype": {
     "name": "Berserk The Prototype",
     "type": "dynamic",
     "base_domain": "berserk-manga.com",
-    "test_path": "/manga/berserk-chapter-1",
-    "url_pattern": "{mirror}/manga/berserk-chapter-{chapter}"
+    "test_path": "/manga/berserk-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/berserk-chapter-{chapter/"
   },
   "black-butler": {
     "name": "Black Butler",
     "type": "dynamic",
     "base_domain": "blackbutler.org",
-    "test_path": "/manga/blackbutler-chapter-1",
-    "url_pattern": "{mirror}/manga/blackbutler-chapter-{chapter}"
+    "test_path": "/manga/kuroshitsuji-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/kuroshitsuji-chapter-{chapter/"
   },
   "black-cat": {
     "name": "Black Cat",
     "type": "dynamic",
     "base_domain": "bc-manga.com",
-    "test_path": "/manga/bc-chapter-1",
-    "url_pattern": "{mirror}/manga/bc-chapter-{chapter}"
+    "test_path": "/manga/black-clover-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/black-clover-chapter-{chapter/"
   },
   "black-clover": {
     "name": "Black Clover",
     "type": "dynamic",
     "base_domain": "blackclover-online.com",
-    "test_path": "/manga/blackclover-chapter-1",
-    "url_pattern": "{mirror}/manga/blackclover-chapter-{chapter}"
+    "test_path": "/manga/black-clover-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/black-clover-chapter-{chapter/"
   },
   "black-lagoon": {
     "name": "Black Lagoon",
     "type": "dynamic",
     "base_domain": "readblacklagoon.com",
-    "test_path": "/manga/black-lagoon-chapter-1",
-    "url_pattern": "{mirror}/manga/black-lagoon-chapter-{chapter}"
+    "test_path": "/comic/black-lagoon-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/black-lagoon-chapter-{chapter/"
   },
   "blame": {
     "name": "Blame",
     "type": "dynamic",
     "base_domain": "blamemanga.com",
-    "test_path": "/manga/blame-chapter-1",
-    "url_pattern": "{mirror}/manga/blame-chapter-{chapter}"
+    "test_path": "/comic/anime-name-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/anime-name-chapter-{chapter/"
   },
   "bleach": {
     "name": "Bleach",
     "type": "dynamic",
     "base_domain": "bleach-read.com",
-    "test_path": "/manga/bleach-chapter-1",
-    "url_pattern": "{mirror}/manga/bleach-chapter-{chapter}"
+    "test_path": "/manga/bleach-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/bleach-chapter-{chapter/"
   },
   "blood-on-the-tracks": {
     "name": "Blood On The Tracks",
     "type": "dynamic",
     "base_domain": "blood-on-the-tracks.com",
-    "test_path": "/manga/blood-on-the-tracks-chapter-1",
-    "url_pattern": "{mirror}/manga/blood-on-the-tracks-chapter-{chapter}"
+    "test_path": "/manga/blood-on-the-tracks-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/blood-on-the-tracks-chapter-{chapter/"
   },
   "bloom-into-you": {
     "name": "Bloom Into You",
     "type": "dynamic",
     "base_domain": "bloom-into-you.com",
-    "test_path": "/manga/bloom-into-you-chapter-1",
-    "url_pattern": "{mirror}/manga/bloom-into-you-chapter-{chapter}"
+    "test_path": "/manga/bloom-into-you-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/bloom-into-you-chapter-{chapter/"
   },
   "blue-box": {
     "name": "Blue Box",
     "type": "dynamic",
     "base_domain": "readblueboxfree.com",
-    "test_path": "/manga/bluebox-chapter-1",
-    "url_pattern": "{mirror}/manga/bluebox-chapter-{chapter}"
+    "test_path": "/comic/blue-box-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/blue-box-chapter-{chapter/"
   },
   "blue-lock": {
     "name": "Blue Lock",
     "type": "dynamic",
     "base_domain": "readbluelock.com",
-    "test_path": "/manga/blue-lock-chapter-1",
-    "url_pattern": "{mirror}/manga/blue-lock-chapter-{chapter}"
+    "test_path": "/manga/blue-lock-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/blue-lock-chapter-{chapter/"
   },
   "bocchi-the-rock": {
     "name": "Bocchi The Rock",
     "type": "dynamic",
     "base_domain": "bocchitherock.com",
-    "test_path": "/manga/bocchi-the-rock-chapter-1",
-    "url_pattern": "{mirror}/manga/bocchi-the-rock-chapter-{chapter}"
+    "test_path": "/manga/bocchi-the-rock-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/bocchi-the-rock-chapter-{chapter/"
   },
   "boruto-naruto-next-generations": {
     "name": "Boruto Naruto Next Generations",
     "type": "dynamic",
     "base_domain": "boruto-online.com",
-    "test_path": "/manga/boruto-chapter-1",
-    "url_pattern": "{mirror}/manga/boruto-chapter-{chapter}"
+    "test_path": "/manga/boruto-chapter-105-boruto-two-blue-vortex-{chapter/",
+    "url_pattern": "{mirror}/manga/boruto-chapter-105-boruto-two-blue-vortex-{chapter/"
   },
   "boruto-two-blue-vortex": {
     "name": "Boruto Two Blue Vortex",
     "type": "dynamic",
     "base_domain": "boruto-online.com",
-    "test_path": "/manga/boruto-chapter-1",
-    "url_pattern": "{mirror}/manga/boruto-chapter-{chapter}"
+    "test_path": "/manga/boruto-chapter-105-boruto-two-blue-vortex-{chapter/",
+    "url_pattern": "{mirror}/manga/boruto-chapter-105-boruto-two-blue-vortex-{chapter/"
   },
   "breakers": {
     "name": "Breakers",
@@ -248,127 +255,120 @@
     "name": "Bungou Stray Dogs",
     "type": "dynamic",
     "base_domain": "bungoustraydogs.net",
-    "test_path": "/manga/bungoustraydogs-chapter-1",
-    "url_pattern": "{mirror}/manga/bungoustraydogs-chapter-{chapter}"
+    "test_path": "/comic/bungou-stray-dogs-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/bungou-stray-dogs-chapter-{chapter/"
   },
   "chained-soldier": {
     "name": "Chained Soldier",
     "type": "dynamic",
     "base_domain": "chainedsoldier.com",
-    "test_path": "/manga/chainedsoldier-chapter-1",
-    "url_pattern": "{mirror}/manga/chainedsoldier-chapter-{chapter}"
+    "test_path": "/manga/chapter-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/chapter-chapter-{chapter/"
   },
   "chainsaw-man": {
     "name": "Chainsaw Man",
     "type": "dynamic",
     "base_domain": "read-chainsaw-man.com",
-    "test_path": "/manga/chainsaw-man-chapter-1",
-    "url_pattern": "{mirror}/manga/chainsaw-man-chapter-{chapter}"
+    "test_path": "/manga/chainsaw-man-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/chainsaw-man-chapter-{chapter/"
   },
   "chitose-is-in-the-ramune-bottle": {
     "name": "Chitose Is In The Ramune Bottle",
     "type": "dynamic",
     "base_domain": "chitoseisintheramunebottle.com",
     "test_path": "/manga/chitose-is-in-the-ramune-bottle-chapter-1",
-    "url_pattern": "{mirror}/manga/chitose-is-in-the-ramune-bottle-chapter-{chapter}"
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   },
   "choujin-x": {
     "name": "Choujin X",
     "type": "dynamic",
     "base_domain": "readchoujinx.com",
-    "test_path": "/manga/choujinx-chapter-1",
-    "url_pattern": "{mirror}/manga/choujinx-chapter-{chapter}"
+    "test_path": "/manga/choujin-x-chapter-68-{chapter/",
+    "url_pattern": "{mirror}/manga/choujin-x-chapter-68-{chapter/"
   },
   "classroom-of-the-elite": {
     "name": "Classroom Of The Elite",
     "type": "dynamic",
     "base_domain": "classroomoftheelite.net",
-    "test_path": "/manga/classroomoftheelite-chapter-1",
-    "url_pattern": "{mirror}/manga/classroomoftheelite-chapter-{chapter}"
+    "test_path": "/manga/classroom-of-the-elite-chapter-1",
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   },
   "claymore": {
     "name": "Claymore",
     "type": "dynamic",
     "base_domain": "readclaymore.com",
-    "test_path": "/manga/claymore-chapter-1",
-    "url_pattern": "{mirror}/manga/claymore-chapter-{chapter}"
+    "test_path": "/manga/claymore-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/claymore-chapter-{chapter/"
   },
   "daemons-of-the-shadow-realm": {
     "name": "Daemons Of The Shadow Realm",
     "type": "dynamic",
     "base_domain": "daemonsoftheshadowrealm.com",
-    "test_path": "/manga/daemonsoftheshadowrealm-chapter-1",
-    "url_pattern": "{mirror}/manga/daemonsoftheshadowrealm-chapter-{chapter}"
+    "test_path": "/manga/daemons-of-the-shadow-realm-chapter-1",
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   },
   "dandadan": {
     "name": "Dandadan",
     "type": "dynamic",
     "base_domain": "dandadan.net",
-    "test_path": "/manga/dandadan-chapter-1",
-    "url_pattern": "{mirror}/manga/dandadan-chapter-{chapter}"
-  },
-  "danganronpa-kibou-no-gakuen-to-zetsubou-no-koukousei-the-animation": {
-    "name": "Danganronpa Kibou No Gakuen To Zetsubou No Koukousei The Animation",
-    "type": "dynamic",
-    "base_domain": "danganronpa-manga.com",
-    "test_path": "/manga/danganronpa-chapter-1",
-    "url_pattern": "{mirror}/manga/danganronpa-chapter-{chapter}"
+    "test_path": "/manga/dandadan-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/dandadan-chapter-{chapter/"
   },
   "danganronpa-the-animation": {
     "name": "Danganronpa The Animation",
     "type": "dynamic",
     "base_domain": "danganronpa-manga.com",
-    "test_path": "/manga/danganronpa-chapter-1",
-    "url_pattern": "{mirror}/manga/danganronpa-chapter-{chapter}"
+    "test_path": "/manga/danganronpa-v3-vol-3-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/danganronpa-v3-vol-3-chapter-{chapter/"
   },
   "dark-gathering": {
     "name": "Dark Gathering",
     "type": "dynamic",
     "base_domain": "dark-gathering.com",
-    "test_path": "/manga/dark-gathering-chapter-1",
-    "url_pattern": "{mirror}/manga/dark-gathering-chapter-{chapter}"
+    "test_path": "/manga/dark-gathering-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/dark-gathering-chapter-{chapter/"
   },
   "daytime-star": {
     "name": "Daytime Star",
     "type": "dynamic",
     "base_domain": "daytime-star.com",
-    "test_path": "/manga/daytime-star-chapter-1",
-    "url_pattern": "{mirror}/manga/daytime-star-chapter-{chapter}"
+    "test_path": "/manga1/daytime-star-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga1/daytime-star-chapter-{chapter/"
   },
   "deadman-wonderland": {
     "name": "Deadman Wonderland",
     "type": "dynamic",
     "base_domain": "deadman-wonderland.com",
-    "test_path": "/manga/deadman-wonderland-chapter-1",
-    "url_pattern": "{mirror}/manga/deadman-wonderland-chapter-{chapter}"
+    "test_path": "/comic/deadman-wonderland-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/deadman-wonderland-chapter-{chapter/"
   },
   "death-note": {
     "name": "Death Note",
     "type": "dynamic",
     "base_domain": "death-note-manga.com",
     "test_path": "/manga/death-note-chapter-1",
-    "url_pattern": "{mirror}/manga/death-note-chapter-{chapter}"
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   },
   "delicious-in-dungeon": {
     "name": "Delicious In Dungeon",
     "type": "dynamic",
     "base_domain": "deliciousindungeon.com",
-    "test_path": "/manga/delicious-in-dungeon-chapter-1",
-    "url_pattern": "{mirror}/manga/delicious-in-dungeon-chapter-{chapter}"
+    "test_path": "/manga/delicious-in-dungeon-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/delicious-in-dungeon-chapter-{chapter/"
   },
   "descended-from-divinity": {
     "name": "Descended From Divinity",
     "type": "dynamic",
     "base_domain": "descendedfromdivinity.com",
-    "test_path": "/manga/descendedfromdivinity-chapter-1",
-    "url_pattern": "{mirror}/manga/descendedfromdivinity-chapter-{chapter}"
+    "test_path": "/manga/the-heavenly-demon-cant-live-a-normal-life-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/the-heavenly-demon-cant-live-a-normal-life-chapter-{chapter/"
   },
   "designated-bully": {
     "name": "Designated Bully",
     "type": "dynamic",
     "base_domain": "designatedbullymanga.com",
-    "test_path": "/manga/designated-bully-chapter-1",
-    "url_pattern": "{mirror}/manga/designated-bully-chapter-{chapter}"
+    "test_path": "/manga/designated-bully-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/designated-bully-chapter-{chapter/"
   },
   "dgray-man": {
     "name": "Dgray Man",
@@ -381,22 +381,22 @@
     "name": "Dragon Ball",
     "type": "dynamic",
     "base_domain": "bstw.dragon-ballmanga.com",
-    "test_path": "/manga/dragon-ball-chapter-1",
-    "url_pattern": "{mirror}/manga/dragon-ball-chapter-{chapter}"
+    "test_path": "/manga/dragon-ball-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/dragon-ball-chapter-{chapter/"
   },
   "dragon-ball-super": {
     "name": "Dragon Ball Super",
     "type": "dynamic",
     "base_domain": "dragonballsuper.org",
-    "test_path": "/manga/dragonballsuper-chapter-1",
-    "url_pattern": "{mirror}/manga/dragonballsuper-chapter-{chapter}"
+    "test_path": "/manga/dragon-ball-chou-super-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/dragon-ball-chou-super-chapter-{chapter/"
   },
   "drama-queen": {
     "name": "Drama Queen",
     "type": "dynamic",
     "base_domain": "dramaqueenmanga.com",
-    "test_path": "/manga/drama-queen-chapter-1",
-    "url_pattern": "{mirror}/manga/drama-queen-chapter-{chapter}"
+    "test_path": "/manga/drama-queen-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/drama-queen-chapter-{chapter/"
   },
   "drunken-my-boss": {
     "name": "Drunken My Boss",
@@ -409,57 +409,64 @@
     "name": "Dungeon Odyssey",
     "type": "dynamic",
     "base_domain": "dungeonodyssey.com",
-    "test_path": "/manga/dungeonodyssey-chapter-1",
-    "url_pattern": "{mirror}/manga/dungeonodyssey-chapter-{chapter}"
+    "test_path": "/manga/dungeon-odyssey-chapter-1-{chapter/",
+    "url_pattern": "{mirror}/manga/dungeon-odyssey-chapter-1-{chapter/"
   },
   "dungeon-reset": {
     "name": "Dungeon Reset",
     "type": "dynamic",
     "base_domain": "dungeon-reset.xyz",
-    "test_path": "/manga/dungeon-reset-chapter-1",
-    "url_pattern": "{mirror}/manga/dungeon-reset-chapter-{chapter}"
+    "test_path": "/comic/dungeon-reset-chapter-1",
+    "url_pattern": "{mirror}/comic/{slug}-chapter-{chapter}"
   },
   "emperor-of-solo-play": {
     "name": "Emperor Of Solo Play",
     "type": "dynamic",
     "base_domain": "emperorofsoloplay.com",
-    "test_path": "/manga/emperor-of-solo-play-chapter-1",
-    "url_pattern": "{mirror}/manga/emperor-of-solo-play-chapter-{chapter}"
+    "test_path": "/manga/emperor-of-solo-play-chapter-1-{chapter/",
+    "url_pattern": "{mirror}/manga/emperor-of-solo-play-chapter-1-{chapter/"
   },
   "empyreal-cabinet": {
     "name": "Empyreal Cabinet",
     "type": "dynamic",
     "base_domain": "empyrealcabinet.com",
-    "test_path": "/manga/empyreal-cabinet-chapter-1",
-    "url_pattern": "{mirror}/manga/empyreal-cabinet-chapter-{chapter}"
+    "test_path": "/manga/empyreal-cabinet-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/empyreal-cabinet-chapter-{chapter/"
   },
   "eternal-club": {
     "name": "Eternal Club",
     "type": "dynamic",
     "base_domain": "eternalclubmanga.com",
-    "test_path": "/manga/eternal-club-chapter-1",
-    "url_pattern": "{mirror}/manga/eternal-club-chapter-{chapter}"
+    "test_path": "/manga/eternal-club-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/eternal-club-chapter-{chapter/"
   },
   "fff-class-trashero": {
     "name": "Fff Class Trashero",
     "type": "dynamic",
     "base_domain": "fffclasstrashero.com",
-    "test_path": "/manga/fffclasstrashero-chapter-1",
-    "url_pattern": "{mirror}/manga/fffclasstrashero-chapter-{chapter}"
+    "test_path": "/manga/fff-class-trashero-chapter-1-{chapter/",
+    "url_pattern": "{mirror}/manga/fff-class-trashero-chapter-1-{chapter/"
   },
   "fly-me-to-the-moon": {
     "name": "Fly Me To The Moon",
     "type": "dynamic",
     "base_domain": "readflymetothemoon.com",
-    "test_path": "/manga/flymetothemoon-chapter-1",
-    "url_pattern": "{mirror}/manga/flymetothemoon-chapter-{chapter}"
+    "test_path": "/manga/fly-me-to-the-moon-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/fly-me-to-the-moon-chapter-{chapter/"
+  },
+  "frieren-beyond-journeys-end": {
+    "name": "Frieren Beyond Journeys End",
+    "type": "dynamic",
+    "base_domain": "read-frieren-manga.com",
+    "test_path": "/manga/frieren-beyond-journeys-end-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/frieren-beyond-journeys-end-chapter-{chapter/"
   },
   "fuufu-ijou-koibito-miman": {
     "name": "Fuufu Ijou Koibito Miman",
     "type": "dynamic",
     "base_domain": "fuufuijoukoibitomiman.com",
-    "test_path": "/manga/fuufu-ijou-koibito-miman-chapter-1",
-    "url_pattern": "{mirror}/manga/fuufu-ijou-koibito-miman-chapter-{chapter}"
+    "test_path": "/manga/fuufu-ijou-koibito-miman-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/fuufu-ijou-koibito-miman-chapter-{chapter/"
   },
   "gachiakuta": {
     "name": "Gachiakuta",
@@ -472,29 +479,43 @@
     "name": "Gals Cant Be Kind To Otaku",
     "type": "dynamic",
     "base_domain": "galscantbekindtootaku.com",
-    "test_path": "/manga/galscantbekindtootaku-chapter-1",
-    "url_pattern": "{mirror}/manga/galscantbekindtootaku-chapter-{chapter}"
+    "test_path": "/manga/gals-cant-be-kind-to-otaku-chapter-1",
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   },
   "goblin-slayer": {
     "name": "Goblin Slayer",
     "type": "dynamic",
     "base_domain": "readgoblinslayer.com",
     "test_path": "/manga/goblin-slayer-chapter-1",
-    "url_pattern": "{mirror}/manga/goblin-slayer-chapter-{chapter}"
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   },
   "gokurakugai": {
     "name": "Gokurakugai",
     "type": "dynamic",
     "base_domain": "gokurakugai.com",
-    "test_path": "/manga/gokurakugai-chapter-1",
-    "url_pattern": "{mirror}/manga/gokurakugai-chapter-{chapter}"
+    "test_path": "/comic/gokurakugai-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/gokurakugai-chapter-{chapter/"
+  },
+  "gokurakugai-sanban-doori-no-ken": {
+    "name": "Gokurakugai Sanban Doori No Ken",
+    "type": "dynamic",
+    "base_domain": "gokurakugai.com",
+    "test_path": "/manga/gokurakugai-sanban-doori-no-ken-chapter-1",
+    "url_pattern": "{mirror}/manga/gokurakugai-sanban-doori-no-ken-chapter-{chapter}"
+  },
+  "gokurakugai-trouble-on-third-avenue": {
+    "name": "Gokurakugai Trouble On Third Avenue",
+    "type": "dynamic",
+    "base_domain": "gokurakugai.com",
+    "test_path": "/manga/gokurakugai-trouble-on-third-avenue-chapter-1",
+    "url_pattern": "{mirror}/manga/gokurakugai-trouble-on-third-avenue-chapter-{chapter}"
   },
   "golden-kamuy": {
     "name": "Golden Kamuy",
     "type": "dynamic",
     "base_domain": "readgoldenkamuy.com",
-    "test_path": "/manga/goldenkamuy-chapter-1",
-    "url_pattern": "{mirror}/manga/goldenkamuy-chapter-{chapter}"
+    "test_path": "/comic/golden-kamuy-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/golden-kamuy-chapter-{chapter/"
   },
   "gon": {
     "name": "Gon",
@@ -507,15 +528,15 @@
     "name": "Goodbye Eri",
     "type": "dynamic",
     "base_domain": "goodbye-eri.com",
-    "test_path": "/manga/goodbye-eri-chapter-1",
-    "url_pattern": "{mirror}/manga/goodbye-eri-chapter-{chapter}"
+    "test_path": "/manga/goodbye-eri-chapter-1-part-8-{chapter/",
+    "url_pattern": "{mirror}/manga/goodbye-eri-chapter-1-part-8-{chapter/"
   },
   "goodnight-punpun": {
     "name": "Goodnight Punpun",
     "type": "dynamic",
     "base_domain": "readgoodnightpunpun.com",
-    "test_path": "/manga/goodnightpunpun-chapter-1",
-    "url_pattern": "{mirror}/manga/goodnightpunpun-chapter-{chapter}"
+    "test_path": "/manga/good-night-punpun-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/good-night-punpun-chapter-{chapter/"
   },
   "gto": {
     "name": "Gto",
@@ -528,36 +549,36 @@
     "name": "Haikyuu",
     "type": "dynamic",
     "base_domain": "read-haikyuu.com",
-    "test_path": "/manga/haikyuu-chapter-1",
-    "url_pattern": "{mirror}/manga/haikyuu-chapter-{chapter}"
+    "test_path": "/manga/haikyuu-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/haikyuu-chapter-{chapter/"
   },
   "hajime-no-ippo": {
     "name": "Hajime No Ippo",
     "type": "dynamic",
     "base_domain": "readhajimenoippofree.com",
-    "test_path": "/manga/hajimenoippo-chapter-1",
-    "url_pattern": "{mirror}/manga/hajimenoippo-chapter-{chapter}"
+    "test_path": "/comic/hajime-no-ippo-chapter-1",
+    "url_pattern": "{mirror}/comic/{slug}-chapter-{chapter}"
   },
   "heavenly-delusion": {
     "name": "Heavenly Delusion",
     "type": "dynamic",
     "base_domain": "heavenly-delusion.com",
-    "test_path": "/manga/heavenly-delusion-chapter-1",
-    "url_pattern": "{mirror}/manga/heavenly-delusion-chapter-{chapter}"
+    "test_path": "/manga/heavenly-delusion-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/heavenly-delusion-chapter-{chapter/"
   },
   "hells-paradise-jigokuraku": {
     "name": "Hells Paradise Jigokuraku",
     "type": "dynamic",
     "base_domain": "hellsparadisejigokuraku.com",
-    "test_path": "/manga/hellsparadisejigokuraku-chapter-1",
-    "url_pattern": "{mirror}/manga/hellsparadisejigokuraku-chapter-{chapter}"
+    "test_path": "/manga/hells-paradise-jigokuraku-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/hells-paradise-jigokuraku-chapter-{chapter/"
   },
   "hellsing": {
     "name": "Hellsing",
     "type": "dynamic",
     "base_domain": "readhellsing.com",
-    "test_path": "/manga/hellsing-chapter-1",
-    "url_pattern": "{mirror}/manga/hellsing-chapter-{chapter}"
+    "test_path": "/manga/hellsing/chapter-{chapter",
+    "url_pattern": "{mirror}/manga/hellsing/chapter-{chapter"
   },
   "hideout": {
     "name": "Hideout",
@@ -570,183 +591,183 @@
     "name": "Honey Lemon Soda",
     "type": "dynamic",
     "base_domain": "honeylemonsoda.xyz",
-    "test_path": "/manga/honeylemonsoda-chapter-1",
-    "url_pattern": "{mirror}/manga/honeylemonsoda-chapter-{chapter}"
+    "test_path": "/manga/honey-lemon-soda-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/honey-lemon-soda-chapter-{chapter/"
   },
   "horimiya": {
     "name": "Horimiya",
     "type": "dynamic",
     "base_domain": "readhorimiya.com",
-    "test_path": "/manga/horimiya-chapter-1",
-    "url_pattern": "{mirror}/manga/horimiya-chapter-{chapter}"
+    "test_path": "/manga/horimiya-vol-1-chapter-1v2-page-{chapter/",
+    "url_pattern": "{mirror}/manga/horimiya-vol-1-chapter-1v2-page-{chapter/"
   },
   "houseki-no-kuni": {
     "name": "Houseki No Kuni",
     "type": "dynamic",
     "base_domain": "housekinokunimanga.com",
     "test_path": "/manga/houseki-no-kuni-chapter-1",
-    "url_pattern": "{mirror}/manga/houseki-no-kuni-chapter-{chapter}"
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   },
   "hunter-x-hunter": {
     "name": "Hunter X Hunter",
     "type": "dynamic",
     "base_domain": "hunterxhuntermanga.com",
-    "test_path": "/manga/hunter-x-hunter-chapter-1",
-    "url_pattern": "{mirror}/manga/hunter-x-hunter-chapter-{chapter}"
+    "test_path": "/manga/hunter-x-hunter-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/hunter-x-hunter-chapter-{chapter/"
   },
   "hyouka": {
     "name": "Hyouka",
     "type": "dynamic",
     "base_domain": "hyoukamanga.com",
-    "test_path": "/manga/hyouka-chapter-1",
-    "url_pattern": "{mirror}/manga/hyouka-chapter-{chapter}"
+    "test_path": "/manga/hyouka-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/hyouka-chapter-{chapter/"
   },
   "i-am-the-fated-villain": {
     "name": "I Am The Fated Villain",
     "type": "dynamic",
     "base_domain": "iamthefatedvillain.com",
-    "test_path": "/manga/iamthefatedvillain-chapter-1",
-    "url_pattern": "{mirror}/manga/iamthefatedvillain-chapter-{chapter}"
+    "test_path": "/manga/i-am-the-fated-villain-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/i-am-the-fated-villain-chapter-{chapter/"
   },
   "i-want-to-end-this-love-game": {
     "name": "I Want To End This Love Game",
     "type": "dynamic",
     "base_domain": "readiwanttoendthislovegame.com",
-    "test_path": "/manga/iwanttoendthislovegame-chapter-1",
-    "url_pattern": "{mirror}/manga/iwanttoendthislovegame-chapter-{chapter}"
+    "test_path": "/read/{chapter",
+    "url_pattern": "{mirror}/read/{chapter"
   },
   "ichi-the-witch": {
     "name": "Ichi The Witch",
     "type": "dynamic",
     "base_domain": "ichi-the-witch.com",
-    "test_path": "/manga/ichi-the-witch-chapter-1",
-    "url_pattern": "{mirror}/manga/ichi-the-witch-chapter-{chapter}"
+    "test_path": "/manga/ichi-the-witch-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/ichi-the-witch-chapter-{chapter/"
   },
   "in-the-clear-moonlit-dusk": {
     "name": "In The Clear Moonlit Dusk",
     "type": "dynamic",
     "base_domain": "readintheclearmoonlitdusk.com",
-    "test_path": "/manga/intheclearmoonlitdusk-chapter-1",
-    "url_pattern": "{mirror}/manga/intheclearmoonlitdusk-chapter-{chapter}"
+    "test_path": "/read/{chapter",
+    "url_pattern": "{mirror}/read/{chapter"
   },
   "initial-d": {
     "name": "Initial D",
     "type": "dynamic",
     "base_domain": "initialdmanga.com",
-    "test_path": "/manga/initial-d-chapter-1",
-    "url_pattern": "{mirror}/manga/initial-d-chapter-{chapter}"
+    "test_path": "/manga/initial-d/chapter-719-{chapter",
+    "url_pattern": "{mirror}/manga/initial-d/chapter-719-{chapter"
   },
   "is-this-hero-for-real": {
     "name": "Is This Hero For Real",
     "type": "dynamic",
     "base_domain": "r1.isthisheroforreal.com",
-    "test_path": "/manga/isthisheroforreal-chapter-1",
-    "url_pattern": "{mirror}/manga/isthisheroforreal-chapter-{chapter}"
+    "test_path": "/manga/is-this-hero-for-real-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/is-this-hero-for-real-chapter-{chapter/"
   },
   "jigokuraku": {
     "name": "Jigokuraku",
     "type": "dynamic",
     "base_domain": "jigokurakumanga.com",
-    "test_path": "/manga/jigokuraku-chapter-1",
-    "url_pattern": "{mirror}/manga/jigokuraku-chapter-{chapter}"
+    "test_path": "/manga/hells-paradise-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/hells-paradise-chapter-{chapter/"
   },
   "jujutsu-kaisen": {
     "name": "Jujutsu Kaisen",
     "type": "dynamic",
     "base_domain": "jujutsukaisen-online.com",
-    "test_path": "/manga/jujutsukaisen-chapter-1",
-    "url_pattern": "{mirror}/manga/jujutsukaisen-chapter-{chapter}"
+    "test_path": "/manga/jujutsu-kaisen-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/jujutsu-kaisen-chapter-{chapter/"
   },
   "jujutsu-kaisen-modulo": {
     "name": "Jujutsu Kaisen Modulo",
     "type": "dynamic",
     "base_domain": "jujutsukaisenmodulo.com",
-    "test_path": "/manga/jujutsu-kaisen-modulo-chapter-1",
-    "url_pattern": "{mirror}/manga/jujutsu-kaisen-modulo-chapter-{chapter}"
+    "test_path": "/manga/jujutsu-kaisen-modulo-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/jujutsu-kaisen-modulo-chapter-{chapter/"
   },
   "juujika-no-rokunin": {
     "name": "Juujika No Rokunin",
     "type": "dynamic",
     "base_domain": "juujikanorokuninmanga.com",
-    "test_path": "/manga/juujika-no-rokunin-chapter-1",
-    "url_pattern": "{mirror}/manga/juujika-no-rokunin-chapter-{chapter}"
+    "test_path": "/manga/juujika-no-rokunin-chapter-232-{chapter/",
+    "url_pattern": "{mirror}/manga/juujika-no-rokunin-chapter-232-{chapter/"
   },
   "kagurabachi": {
     "name": "Kagurabachi",
     "type": "dynamic",
     "base_domain": "kagurabachi-manga.com",
-    "test_path": "/manga/kagurabachi-chapter-1",
-    "url_pattern": "{mirror}/manga/kagurabachi-chapter-{chapter}"
+    "test_path": "/comic/kagurabachi-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/kagurabachi-chapter-{chapter/"
   },
   "kakegurui": {
     "name": "Kakegurui",
     "type": "dynamic",
     "base_domain": "readkakegurui.com",
-    "test_path": "/manga/kakegurui-chapter-1",
-    "url_pattern": "{mirror}/manga/kakegurui-chapter-{chapter}"
+    "test_path": "/manga/kakegurui-chapter-{chapter-jyabami-yumeko/",
+    "url_pattern": "{mirror}/manga/kakegurui-chapter-{chapter-jyabami-yumeko/"
   },
   "kakegurui---compulsive-gambler": {
     "name": "Kakegurui   Compulsive Gambler",
     "type": "dynamic",
     "base_domain": "readkakegurui.com",
-    "test_path": "/manga/kakegurui-chapter-1",
-    "url_pattern": "{mirror}/manga/kakegurui-chapter-{chapter}"
+    "test_path": "/manga/kakegurui-chapter-{chapter-jyabami-yumeko/",
+    "url_pattern": "{mirror}/manga/kakegurui-chapter-{chapter-jyabami-yumeko/"
   },
   "kakegurui-twin": {
     "name": "Kakegurui Twin",
     "type": "dynamic",
     "base_domain": "readkakegurui.com",
-    "test_path": "/manga/kakegurui-chapter-1",
-    "url_pattern": "{mirror}/manga/kakegurui-chapter-{chapter}"
+    "test_path": "/manga/kakegurui-chapter-{chapter-jyabami-yumeko/",
+    "url_pattern": "{mirror}/manga/kakegurui-chapter-{chapter-jyabami-yumeko/"
   },
   "kakkou-no-iinazuke": {
     "name": "Kakkou No Iinazuke",
     "type": "dynamic",
     "base_domain": "read.kakkounoiinazukemanga.com",
-    "test_path": "/manga/kakkou-no-iinazuke-chapter-1",
-    "url_pattern": "{mirror}/manga/kakkou-no-iinazuke-chapter-{chapter}"
+    "test_path": "/manga/a-couple-of-cuckoos-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/a-couple-of-cuckoos-chapter-{chapter/"
   },
   "kanojo-no-tomodachi": {
     "name": "Kanojo No Tomodachi",
     "type": "dynamic",
     "base_domain": "kanojonotomodachi.com",
-    "test_path": "/manga/kanojo-no-tomodachi-chapter-1",
-    "url_pattern": "{mirror}/manga/kanojo-no-tomodachi-chapter-{chapter}"
+    "test_path": "/manga/kanojo-no-tomodachi-jura-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/kanojo-no-tomodachi-jura-chapter-{chapter/"
   },
   "kaoru-hana-wa-rin-to-saku": {
     "name": "Kaoru Hana Wa Rin To Saku",
     "type": "dynamic",
     "base_domain": "kaoruhanawarintosaku.net",
-    "test_path": "/manga/kaoruhanawarintosaku-chapter-1",
-    "url_pattern": "{mirror}/manga/kaoruhanawarintosaku-chapter-{chapter}"
+    "test_path": "/manga/the-fragrant-flower-blooms-with-dignity-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/the-fragrant-flower-blooms-with-dignity-chapter-{chapter/"
   },
   "kekkon-yubiwa-monogatari": {
     "name": "Kekkon Yubiwa Monogatari",
     "type": "dynamic",
     "base_domain": "w3.kekkonyubiwamonogatari.com",
-    "test_path": "/manga/kekkon-yubiwa-monogatari-chapter-1",
-    "url_pattern": "{mirror}/manga/kekkon-yubiwa-monogatari-chapter-{chapter}"
+    "test_path": "/manga/kekkon-yubiwa-monogatari-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/kekkon-yubiwa-monogatari-chapter-{chapter/"
   },
   "kengan-ashura": {
     "name": "Kengan Ashura",
     "type": "dynamic",
     "base_domain": "read-kengan-ashura.com",
-    "test_path": "/manga/kengan-ashura-chapter-1",
-    "url_pattern": "{mirror}/manga/kengan-ashura-chapter-{chapter}"
+    "test_path": "/comic/kengan-ashura-manga-vol-1-chapter-1-v{chapter-fixed/",
+    "url_pattern": "{mirror}/comic/kengan-ashura-manga-vol-1-chapter-1-v{chapter-fixed/"
   },
   "kimi-ni-todoke": {
     "name": "Kimi Ni Todoke",
     "type": "dynamic",
     "base_domain": "readkiminitodoke.com",
-    "test_path": "/manga/kiminitodoke-chapter-1",
-    "url_pattern": "{mirror}/manga/kiminitodoke-chapter-{chapter}"
+    "test_path": "/manga/kimi-ni-todoke-from-me-to-you-chapter-123-{chapter/",
+    "url_pattern": "{mirror}/manga/kimi-ni-todoke-from-me-to-you-chapter-123-{chapter/"
   },
   "kindergarten-wars": {
     "name": "Kindergarten Wars",
     "type": "dynamic",
     "base_domain": "kindergartenwars.com",
-    "test_path": "/manga/kindergartenwars-chapter-1",
-    "url_pattern": "{mirror}/manga/kindergartenwars-chapter-{chapter}"
+    "test_path": "/manga/kindergarten-wars-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/kindergarten-wars-chapter-{chapter/"
   },
   "kuroshitsuji": {
     "name": "Kuroshitsuji",
@@ -759,113 +780,113 @@
     "name": "Leviathan",
     "type": "dynamic",
     "base_domain": "leviathanmanga.com",
-    "test_path": "/manga/leviathan-chapter-1",
-    "url_pattern": "{mirror}/manga/leviathan-chapter-{chapter}"
+    "test_path": "/manga/leviathan-lee-gyuntak-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/leviathan-lee-gyuntak-chapter-{chapter/"
   },
   "loner-life-in-another-world": {
     "name": "Loner Life In Another World",
     "type": "dynamic",
     "base_domain": "lonerlifeinanotherworld.com",
-    "test_path": "/manga/lonerlifeinanotherworld-chapter-1",
-    "url_pattern": "{mirror}/manga/lonerlifeinanotherworld-chapter-{chapter}"
+    "test_path": "/manga/lonely-attack-on-a-different-world-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/lonely-attack-on-a-different-world-chapter-{chapter/"
   },
   "made-in-abyss": {
     "name": "Made In Abyss",
     "type": "dynamic",
     "base_domain": "made-in-abyss-manga.com",
-    "test_path": "/manga/made-in-abyss-chapter-1",
-    "url_pattern": "{mirror}/manga/made-in-abyss-chapter-{chapter}"
+    "test_path": "/manga/made-in-abyss-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/made-in-abyss-chapter-{chapter/"
   },
   "maid-sama": {
     "name": "Maid Sama",
     "type": "dynamic",
     "base_domain": "maid-sama.com",
-    "test_path": "/manga/maid-sama-chapter-1",
-    "url_pattern": "{mirror}/manga/maid-sama-chapter-{chapter}"
+    "test_path": "/manga/maid-sama-chapter-oneshot-special-{chapter/",
+    "url_pattern": "{mirror}/manga/maid-sama-chapter-oneshot-special-{chapter/"
   },
   "martial-peak": {
     "name": "Martial Peak",
     "type": "dynamic",
     "base_domain": "martial-peak.org",
-    "test_path": "/manga/martial-peak-chapter-1",
-    "url_pattern": "{mirror}/manga/martial-peak-chapter-{chapter}"
+    "test_path": "/manga/martial-peak-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/martial-peak-chapter-{chapter/"
   },
   "mawangui-ttallo-taeeonatseumnida": {
     "name": "Mawangui Ttallo Taeeonatseumnida",
     "type": "dynamic",
     "base_domain": "mtt.org",
-    "test_path": "/manga/mtt-chapter-1",
-    "url_pattern": "{mirror}/manga/mtt-chapter-{chapter}"
+    "test_path": "/manga/mawangui-ttallo-taeeonatseumnida-chapter-1",
+    "url_pattern": "{mirror}/manga/mawangui-ttallo-taeeonatseumnida-chapter-{chapter}"
   },
   "maybe-meant-to-be": {
     "name": "Maybe Meant To Be",
     "type": "dynamic",
     "base_domain": "maybemeanttobe.com",
-    "test_path": "/manga/maybemeanttobe-chapter-1",
-    "url_pattern": "{mirror}/manga/maybemeanttobe-chapter-{chapter}"
+    "test_path": "/manga/maybe-meant-to-be-chapter-132-{chapter/",
+    "url_pattern": "{mirror}/manga/maybe-meant-to-be-chapter-132-{chapter/"
   },
   "mayonaka-heart-tune": {
     "name": "Mayonaka Heart Tune",
     "type": "dynamic",
     "base_domain": "mayonakahearttune.com",
-    "test_path": "/manga/mayonakahearttune-chapter-1",
-    "url_pattern": "{mirror}/manga/mayonakahearttune-chapter-{chapter}"
+    "test_path": "/manga/mayonaka-heart-tune-chapter-1",
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   },
   "mieruko-chan": {
     "name": "Mieruko Chan",
     "type": "dynamic",
     "base_domain": "mierukochan.com",
-    "test_path": "/manga/mierukochan-chapter-1",
-    "url_pattern": "{mirror}/manga/mierukochan-chapter-{chapter}"
+    "test_path": "/manga/mieruko-chan-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/mieruko-chan-chapter-{chapter/"
   },
   "mob-psycho-100": {
     "name": "Mob Psycho 100",
     "type": "dynamic",
     "base_domain": "readmobpsycho100.com",
-    "test_path": "/manga/mobpsycho100-chapter-1",
-    "url_pattern": "{mirror}/manga/mobpsycho100-chapter-{chapter}"
+    "test_path": "/comic/mob-psycho-100-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/mob-psycho-100-chapter-{chapter/"
   },
   "monster": {
     "name": "Monster",
     "type": "dynamic",
     "base_domain": "read-monster.com",
-    "test_path": "/manga/monster-chapter-1",
-    "url_pattern": "{mirror}/manga/monster-chapter-{chapter}"
+    "test_path": "/manga/monster-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/monster-chapter-{chapter/"
   },
   "monster-musume": {
     "name": "Monster Musume",
     "type": "dynamic",
     "base_domain": "read-monster.com",
-    "test_path": "/manga/monster-chapter-1",
-    "url_pattern": "{mirror}/manga/monster-chapter-{chapter}"
+    "test_path": "/manga/monster-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/monster-chapter-{chapter/"
   },
   "monster-musume-no-iru-nichijou": {
     "name": "Monster Musume No Iru Nichijou",
     "type": "dynamic",
     "base_domain": "read-monster.com",
-    "test_path": "/manga/monster-chapter-1",
-    "url_pattern": "{mirror}/manga/monster-chapter-{chapter}"
+    "test_path": "/manga/monster-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/monster-chapter-{chapter/"
   },
   "my-bias-gets-on-the-last-train": {
     "name": "My Bias Gets On The Last Train",
     "type": "dynamic",
     "base_domain": "mybiasgetsonthelasttrain.com",
-    "test_path": "/manga/my-bias-gets-on-the-last-train-chapter-1",
-    "url_pattern": "{mirror}/manga/my-bias-gets-on-the-last-train-chapter-{chapter}"
+    "test_path": "/manga/my-bias-gets-on-the-last-train-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/my-bias-gets-on-the-last-train-chapter-{chapter/"
   },
   "my-dress-up-darling": {
     "name": "My Dress Up Darling",
     "type": "dynamic",
     "base_domain": "mydressupdarling.com",
-    "test_path": "/manga/my-dress-up-darling-chapter-1",
-    "url_pattern": "{mirror}/manga/my-dress-up-darling-chapter-{chapter}"
+    "test_path": "/manga/my-dress-up-darling-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/my-dress-up-darling-chapter-{chapter/"
   },
   "my-happy-marriage": {
     "name": "My Happy Marriage",
     "type": "dynamic",
     "base_domain": "my-happy-marriage.com",
-    "test_path": "/manga/my-happy-marriage-chapter-1",
-    "url_pattern": "{mirror}/manga/my-happy-marriage-chapter-{chapter}"
+    "test_path": "/manga/my-happy-marriage-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/my-happy-marriage-chapter-{chapter/"
   },
   "nano-machine": {
     "name": "Nano Machine",
@@ -878,127 +899,127 @@
     "name": "Nebulas Civilization",
     "type": "dynamic",
     "base_domain": "thenebulascivilization.com",
-    "test_path": "/manga/nebulascivilization-chapter-1",
-    "url_pattern": "{mirror}/manga/nebulascivilization-chapter-{chapter}"
+    "test_path": "/manga/the-nebulas-civilization-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/the-nebulas-civilization-chapter-{chapter/"
   },
   "neon-genesis-evangelion": {
     "name": "Neon Genesis Evangelion",
     "type": "dynamic",
     "base_domain": "readneongenesisevangelion.com",
-    "test_path": "/manga/neongenesisevangelion-chapter-1",
-    "url_pattern": "{mirror}/manga/neongenesisevangelion-chapter-{chapter}"
+    "test_path": "/comic/neon-genesis-evangelion-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/neon-genesis-evangelion-chapter-{chapter/"
   },
   "no-longer-allowed-in-another-world": {
     "name": "No Longer Allowed In Another World",
     "type": "dynamic",
     "base_domain": "nolongerallowedinanotherworld.com",
-    "test_path": "/manga/nolongerallowedinanotherworld-chapter-1",
-    "url_pattern": "{mirror}/manga/nolongerallowedinanotherworld-chapter-{chapter}"
+    "test_path": "/manga/no-longer-allowed-in-another-world-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/no-longer-allowed-in-another-world-chapter-{chapter/"
   },
   "ntrevenge": {
     "name": "Ntrevenge",
     "type": "dynamic",
     "base_domain": "ntrevenge.com",
-    "test_path": "/manga/ntrevenge-chapter-1",
-    "url_pattern": "{mirror}/manga/ntrevenge-chapter-{chapter}"
+    "test_path": "/manga/ntrevenge-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/ntrevenge-chapter-{chapter/"
   },
   "omniscient-reader": {
     "name": "Omniscient Reader",
     "type": "dynamic",
     "base_domain": "omniscientreader.net",
-    "test_path": "/manga/omniscientreader-chapter-1",
-    "url_pattern": "{mirror}/manga/omniscientreader-chapter-{chapter}"
+    "test_path": "/comic/omniscient-readers-viewpoint-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/omniscient-readers-viewpoint-chapter-{chapter/"
   },
   "one-piece": {
     "name": "One Piece",
     "type": "dynamic",
     "base_domain": "w1.readone-piece.com",
-    "test_path": "/manga/one-piece-chapter-1",
-    "url_pattern": "{mirror}/manga/one-piece-chapter-{chapter}"
+    "test_path": "/comic/one-piece-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/one-piece-chapter-{chapter/"
   },
   "one-punch-man": {
     "name": "One Punch Man",
     "type": "dynamic",
     "base_domain": "one-punch-man-manga.com",
-    "test_path": "/manga/one-punch-man-chapter-1",
-    "url_pattern": "{mirror}/manga/one-punch-man-chapter-{chapter}"
+    "test_path": "/manga/one-punch-man-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/one-punch-man-chapter-{chapter/"
   },
   "oshi-no-ko": {
     "name": "Oshi No Ko",
     "type": "dynamic",
     "base_domain": "oshinokomanga.com",
     "test_path": "/manga/oshi-no-ko-chapter-1",
-    "url_pattern": "{mirror}/manga/oshi-no-ko-chapter-{chapter}"
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   },
   "otr-of-the-flame": {
     "name": "Otr Of The Flame",
     "type": "dynamic",
     "base_domain": "otr-of-the-flame.com",
-    "test_path": "/manga/otr-of-the-flame-chapter-1",
-    "url_pattern": "{mirror}/manga/otr-of-the-flame-chapter-{chapter}"
+    "test_path": "/manga/otr-of-the-flame-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/otr-of-the-flame-chapter-{chapter/"
   },
   "overgeared": {
     "name": "Overgeared",
     "type": "dynamic",
     "base_domain": "overgearedmanga.com",
-    "test_path": "/manga/overgeared-chapter-1",
-    "url_pattern": "{mirror}/manga/overgeared-chapter-{chapter}"
+    "test_path": "/comic/overgeared-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/overgeared-chapter-{chapter/"
   },
   "oyasumi-punpun": {
     "name": "Oyasumi Punpun",
     "type": "dynamic",
     "base_domain": "oyasumipunpun.com",
-    "test_path": "/manga/oyasumi-punpun-chapter-1",
-    "url_pattern": "{mirror}/manga/oyasumi-punpun-chapter-{chapter}"
+    "test_path": "/manga/oyasumi-punpun-manga-vol-1-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/oyasumi-punpun-manga-vol-1-chapter-{chapter/"
   },
   "painter-of-the-night": {
     "name": "Painter Of The Night",
     "type": "dynamic",
     "base_domain": "painterofthenight.com",
-    "test_path": "/manga/painter-of-the-night-chapter-1",
-    "url_pattern": "{mirror}/manga/painter-of-the-night-chapter-{chapter}"
+    "test_path": "/manga/fe61a015-painter-of-the-night-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/fe61a015-painter-of-the-night-chapter-{chapter/"
   },
   "paradise-kiss": {
     "name": "Paradise Kiss",
     "type": "dynamic",
     "base_domain": "readparadise.com",
-    "test_path": "/manga/paradise-chapter-1",
-    "url_pattern": "{mirror}/manga/paradise-chapter-{chapter}"
+    "test_path": "/manga/paradise-kiss-chapter-1",
+    "url_pattern": "{mirror}/manga/paradise-kiss-chapter-{chapter}"
   },
   "parashoppers": {
     "name": "Parashoppers",
     "type": "dynamic",
     "base_domain": "parashoppers.com",
-    "test_path": "/manga/parashoppers-chapter-1",
-    "url_pattern": "{mirror}/manga/parashoppers-chapter-{chapter}"
+    "test_path": "/manga/parashoppers-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/parashoppers-chapter-{chapter/"
   },
   "parasyte": {
     "name": "Parasyte",
     "type": "dynamic",
     "base_domain": "parasytemanga.com",
-    "test_path": "/manga/parasyte-chapter-1",
-    "url_pattern": "{mirror}/manga/parasyte-chapter-{chapter}"
+    "test_path": "/manga/parasyte-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/parasyte-chapter-{chapter/"
   },
   "pumpkin-night": {
     "name": "Pumpkin Night",
     "type": "dynamic",
     "base_domain": "pumpkin-night.com",
-    "test_path": "/manga/pumpkin-night-chapter-1",
-    "url_pattern": "{mirror}/manga/pumpkin-night-chapter-{chapter}"
+    "test_path": "/manga/pumpkin-night-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/pumpkin-night-chapter-{chapter/"
   },
   "reality-quest": {
     "name": "Reality Quest",
     "type": "dynamic",
     "base_domain": "w1.realityquestmanga.com",
     "test_path": "/manga/reality-quest-chapter-1",
-    "url_pattern": "{mirror}/manga/reality-quest-chapter-{chapter}"
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   },
   "record-of-ragnarok": {
     "name": "Record Of Ragnarok",
     "type": "dynamic",
     "base_domain": "readrecordofragnarok.com",
-    "test_path": "/manga/record-of-ragnarok-chapter-1",
-    "url_pattern": "{mirror}/manga/record-of-ragnarok-chapter-{chapter}"
+    "test_path": "/comic/record-of-ragnarok-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/record-of-ragnarok-chapter-{chapter/"
   },
   "red-river": {
     "name": "Red River",
@@ -1011,22 +1032,22 @@
     "name": "Reincarnated As A Sword",
     "type": "dynamic",
     "base_domain": "reincarnatedasasword.com",
-    "test_path": "/manga/reincarnatedasasword-chapter-1",
-    "url_pattern": "{mirror}/manga/reincarnatedasasword-chapter-{chapter}"
+    "test_path": "/manga/reincarnated-as-a-sword-vol-1-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/reincarnated-as-a-sword-vol-1-chapter-{chapter/"
   },
   "reincarnation-of-the-fist-king": {
     "name": "Reincarnation Of The Fist King",
     "type": "dynamic",
     "base_domain": "reincarnationofthefistking.com",
-    "test_path": "/manga/reincarnation-of-the-fist-king-chapter-1",
-    "url_pattern": "{mirror}/manga/reincarnation-of-the-fist-king-chapter-{chapter}"
+    "test_path": "/manga/reincarnation-of-the-fist-king-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/reincarnation-of-the-fist-king-chapter-{chapter/"
   },
   "reincarnator": {
     "name": "Reincarnator",
     "type": "dynamic",
     "base_domain": "reincarnator.xyz",
-    "test_path": "/manga/reincarnator-chapter-1",
-    "url_pattern": "{mirror}/manga/reincarnator-chapter-{chapter}"
+    "test_path": "/manga/2524-reincarnator-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/2524-reincarnator-chapter-{chapter/"
   },
   "rent-a-girlfriend": {
     "name": "Rent a Girlfriend",
@@ -1039,22 +1060,22 @@
     "name": "Reverend Insanity",
     "type": "dynamic",
     "base_domain": "readreverendinsanity.com",
-    "test_path": "/manga/reverendinsanity-chapter-1",
-    "url_pattern": "{mirror}/manga/reverendinsanity-chapter-{chapter}"
+    "test_path": "/manga/master-of-gu-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/master-of-gu-chapter-{chapter/"
   },
   "ruri-dragon": {
     "name": "Ruri Dragon",
     "type": "dynamic",
     "base_domain": "readruridragon.com",
-    "test_path": "/manga/ruridragon-chapter-1",
-    "url_pattern": "{mirror}/manga/ruridragon-chapter-{chapter}"
+    "test_path": "/manga/ruri-dragon-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/ruri-dragon-chapter-{chapter/"
   },
   "ruridragon": {
     "name": "Ruridragon",
     "type": "dynamic",
     "base_domain": "ruridragon.com",
-    "test_path": "/manga/ruridragon-chapter-1",
-    "url_pattern": "{mirror}/manga/ruridragon-chapter-{chapter}"
+    "test_path": "/manga/ruridragon-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/ruridragon-chapter-{chapter/"
   },
   "sakamoto-days": {
     "name": "Sakamoto Days",
@@ -1067,8 +1088,8 @@
     "name": "Sasaki To Miyano",
     "type": "dynamic",
     "base_domain": "sasaki-to-miyano.com",
-    "test_path": "/manga/sasaki-to-miyano-chapter-1",
-    "url_pattern": "{mirror}/manga/sasaki-to-miyano-chapter-{chapter}"
+    "test_path": "/manga/sasaki-to-miyano-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/sasaki-to-miyano-chapter-{chapter/"
   },
   "second-life-ranker": {
     "name": "Second Life Ranker",
@@ -1081,337 +1102,337 @@
     "name": "Seirei Gensouki",
     "type": "dynamic",
     "base_domain": "seireigensouki.net",
-    "test_path": "/manga/seireigensouki-chapter-1",
-    "url_pattern": "{mirror}/manga/seireigensouki-chapter-{chapter}"
+    "test_path": "/manga/seirei-gensouki-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/seirei-gensouki-chapter-{chapter/"
   },
   "sentai-daishikkaku": {
     "name": "Sentai Daishikkaku",
     "type": "dynamic",
     "base_domain": "w3.sentaidaishikkaku.com",
-    "test_path": "/manga/sentai-daishikkaku-chapter-1",
-    "url_pattern": "{mirror}/manga/sentai-daishikkaku-chapter-{chapter}"
+    "test_path": "/manga/sentai-daishikkaku-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/sentai-daishikkaku-chapter-{chapter/"
   },
   "shinobi-undercover": {
     "name": "Shinobi Undercover",
     "type": "dynamic",
     "base_domain": "shinobiundercovermanga.com",
-    "test_path": "/manga/shinobi-undercover-chapter-1",
-    "url_pattern": "{mirror}/manga/shinobi-undercover-chapter-{chapter}"
+    "test_path": "/manga/shinobi-undercover-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/shinobi-undercover-chapter-{chapter/"
   },
   "solo-leveling": {
     "name": "Solo Leveling",
     "type": "dynamic",
     "base_domain": "sololeveling-manga.net",
     "test_path": "/manga/solo-leveling-chapter-1",
-    "url_pattern": "{mirror}/manga/solo-leveling"
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   },
   "solo-leveling-ragnarok": {
     "name": "Solo Leveling Ragnarok",
     "type": "dynamic",
     "base_domain": "sololevelingragnarok.com",
-    "test_path": "/manga/sololevelingragnarok-chapter-1",
-    "url_pattern": "{mirror}/manga/sololevelingragnarok-chapter-{chapter}"
+    "test_path": "/manga/solo-leveling-ragnarok-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/solo-leveling-ragnarok-chapter-{chapter/"
   },
   "someone-hertz": {
     "name": "Someone Hertz",
     "type": "dynamic",
     "base_domain": "someonehertzmanga.com",
-    "test_path": "/manga/someone-hertz-chapter-1",
-    "url_pattern": "{mirror}/manga/someone-hertz-chapter-{chapter}"
+    "test_path": "/manga/someone-hertz-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/someone-hertz-chapter-{chapter/"
   },
   "soul-land": {
     "name": "Soul Land",
     "type": "dynamic",
     "base_domain": "readsoulland.com",
-    "test_path": "/manga/soulland-chapter-1",
-    "url_pattern": "{mirror}/manga/soulland-chapter-{chapter}"
+    "test_path": "/comic/soul-land-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/soul-land-chapter-{chapter/"
   },
   "sousou-no-frieren": {
     "name": "Sousou No Frieren",
     "type": "dynamic",
     "base_domain": "sousou-no-frieren.com",
-    "test_path": "/manga/sousou-no-frieren-chapter-1",
-    "url_pattern": "{mirror}/manga/sousou-no-frieren-chapter-{chapter}"
+    "test_path": "/manga/253-sousou-no-frieren-chapter-{chapter-end-of-adventure/",
+    "url_pattern": "{mirror}/manga/253-sousou-no-frieren-chapter-{chapter-end-of-adventure/"
   },
   "spy-x-family": {
     "name": "Spy X Family",
     "type": "dynamic",
     "base_domain": "w2.spy-x-family.com",
-    "test_path": "/manga/spy-x-family-chapter-1",
-    "url_pattern": "{mirror}/manga/spy-x-family-chapter-{chapter}"
+    "test_path": "/manga/spy-x-family-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/spy-x-family-chapter-{chapter/"
   },
   "survival-in-another-world-with-my-mistress": {
     "name": "Survival In Another World With My Mistress",
     "type": "dynamic",
     "base_domain": "survival.com",
-    "test_path": "/manga/survival-chapter-1",
-    "url_pattern": "{mirror}/manga/survival-chapter-{chapter}"
+    "test_path": "/manga/survival-in-another-world-with-my-mistress-chapter-1",
+    "url_pattern": "{mirror}/manga/survival-in-another-world-with-my-mistress-chapter-{chapter}"
   },
   "talentless-nana": {
     "name": "Talentless Nana",
     "type": "dynamic",
     "base_domain": "w1.talentlessnana.com",
     "test_path": "/manga/talentless-nana-chapter-1",
-    "url_pattern": "{mirror}/manga/talentless-nana-chapter-{chapter}"
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   },
   "tales-of-demons-and-gods": {
     "name": "Tales Of Demons And Gods",
     "type": "dynamic",
     "base_domain": "thetalesofdemonsandgods.com",
-    "test_path": "/manga/talesofdemonsandgods-chapter-1",
-    "url_pattern": "{mirror}/manga/talesofdemonsandgods-chapter-{chapter}"
+    "test_path": "/manga/tales-of-demons-and-gods-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/tales-of-demons-and-gods-chapter-{chapter/"
   },
   "tensei-shitara-slime-datta-ken": {
     "name": "Tensei Shitara Slime Datta Ken",
     "type": "dynamic",
     "base_domain": "tenseishitaraslimedattaken.net",
-    "test_path": "/manga/tenseishitaraslimedattaken-chapter-1",
-    "url_pattern": "{mirror}/manga/tenseishitaraslimedattaken-chapter-{chapter}"
+    "test_path": "/manga/tensei-shitara-slime-datta-ken-chapter-1",
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   },
   "that-time-i-got-reincarnated-as-a-slime": {
     "name": "That Time I Got Reincarnated As A Slime",
     "type": "dynamic",
     "base_domain": "thattimeigotreincarnatedasaslime.com",
-    "test_path": "/manga/thattimeigotreincarnatedasaslime-chapter-1",
-    "url_pattern": "{mirror}/manga/thattimeigotreincarnatedasaslime-chapter-{chapter}"
+    "test_path": "/manga/tensei-shitara-slime-datta-ken-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/tensei-shitara-slime-datta-ken-chapter-{chapter/"
   },
   "the-apothecary-diaries": {
     "name": "The Apothecary Diaries",
     "type": "dynamic",
     "base_domain": "the-apothecary-diaries.com",
-    "test_path": "/manga/the-apothecary-diaries-chapter-1",
-    "url_pattern": "{mirror}/manga/the-apothecary-diaries-chapter-{chapter}"
+    "test_path": "/manga/the-apothecary-diaries-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/the-apothecary-diaries-chapter-{chapter/"
   },
   "the-case-study-of-vanitas": {
     "name": "The Case Study Of Vanitas",
     "type": "dynamic",
     "base_domain": "thecasestudyofvanitas.com",
-    "test_path": "/manga/thecasestudyofvanitas-chapter-1",
-    "url_pattern": "{mirror}/manga/thecasestudyofvanitas-chapter-{chapter}"
+    "test_path": "/manga/the-case-study-of-vanitas-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/the-case-study-of-vanitas-chapter-{chapter/"
   },
   "the-climber": {
     "name": "The Climber",
     "type": "dynamic",
     "base_domain": "theclimbermanga.com",
-    "test_path": "/manga/the-climber-chapter-1",
-    "url_pattern": "{mirror}/manga/the-climber-chapter-{chapter}"
+    "test_path": "/comic/the-climber-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/the-climber-chapter-{chapter/"
   },
   "the-death-mage": {
     "name": "The Death Mage",
     "type": "dynamic",
     "base_domain": "thedeathmage.com",
-    "test_path": "/manga/thedeathmage-chapter-1",
-    "url_pattern": "{mirror}/manga/thedeathmage-chapter-{chapter}"
+    "test_path": "/manga/the-death-mage-who-doesnt-want-a-fourth-time-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/the-death-mage-who-doesnt-want-a-fourth-time-chapter-{chapter/"
   },
   "the-flowers-of-evil": {
     "name": "The Flowers Of Evil",
     "type": "dynamic",
     "base_domain": "the-flowers-of-evil.com",
-    "test_path": "/manga/the-flowers-of-evil-chapter-1",
-    "url_pattern": "{mirror}/manga/the-flowers-of-evil-chapter-{chapter}"
+    "test_path": "/manga/the-flowers-of-evil-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/the-flowers-of-evil-chapter-{chapter/"
   },
   "the-game-that-i-came-from": {
     "name": "The Game That I Came From",
     "type": "dynamic",
     "base_domain": "thegamethaticamefrom.com",
-    "test_path": "/manga/thegamethaticamefrom-chapter-1",
-    "url_pattern": "{mirror}/manga/thegamethaticamefrom-chapter-{chapter}"
+    "test_path": "/manga/the-game-that-i-come-from-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/the-game-that-i-come-from-chapter-{chapter/"
   },
   "the-great-cleric": {
     "name": "The Great Cleric",
     "type": "dynamic",
     "base_domain": "thegreatcleric.com",
-    "test_path": "/manga/the-great-cleric-chapter-1",
-    "url_pattern": "{mirror}/manga/the-great-cleric-chapter-{chapter}"
+    "test_path": "/manga/the-great-cleric-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/the-great-cleric-chapter-{chapter/"
   },
   "the-greatest-estate-developer": {
     "name": "The Greatest Estate Developer",
     "type": "dynamic",
     "base_domain": "thegreatestestatedeveloper.org",
-    "test_path": "/manga/thegreatestestatedeveloper-chapter-1",
-    "url_pattern": "{mirror}/manga/thegreatestestatedeveloper-chapter-{chapter}"
+    "test_path": "/manga/the-greatest-estate-developer-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/the-greatest-estate-developer-chapter-{chapter/"
   },
   "the-hero-returns": {
     "name": "The Hero Returns",
     "type": "dynamic",
     "base_domain": "theheroreturns.com",
-    "test_path": "/manga/theheroreturns-chapter-1",
-    "url_pattern": "{mirror}/manga/theheroreturns-chapter-{chapter}"
+    "test_path": "/manga/the-hero-returns-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/the-hero-returns-chapter-{chapter/"
   },
   "the-horizon": {
     "name": "The Horizon",
     "type": "dynamic",
     "base_domain": "thehorizonmanga.com",
-    "test_path": "/manga/the-horizon-chapter-1",
-    "url_pattern": "{mirror}/manga/the-horizon-chapter-{chapter}"
+    "test_path": "/manga/the-horizon-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/the-horizon-chapter-{chapter/"
   },
   "the-kingdoms-of-ruin": {
     "name": "The Kingdoms Of Ruin",
     "type": "dynamic",
     "base_domain": "w6.thekingdomsofruin.com",
-    "test_path": "/manga/the-kingdoms-of-ruin-chapter-1",
-    "url_pattern": "{mirror}/manga/the-kingdoms-of-ruin-chapter-{chapter}"
+    "test_path": "/manga/17261-the-kingdoms-of-ruin-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/17261-the-kingdoms-of-ruin-chapter-{chapter/"
   },
   "the-player-who-cant-level-up": {
     "name": "The Player Who Cant Level Up",
     "type": "dynamic",
     "base_domain": "theplayerwhocantlevelup.com",
-    "test_path": "/manga/theplayerwhocantlevelup-chapter-1",
-    "url_pattern": "{mirror}/manga/theplayerwhocantlevelup-chapter-{chapter}"
+    "test_path": "/manga/the-player-that-cant-level-up-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/the-player-that-cant-level-up-chapter-{chapter/"
   },
   "the-promised-neverland": {
     "name": "The Promised Neverland",
     "type": "dynamic",
     "base_domain": "thepromisedneverland-manga.com",
-    "test_path": "/manga/thepromisedneverland-chapter-1",
-    "url_pattern": "{mirror}/manga/thepromisedneverland-chapter-{chapter}"
+    "test_path": "/manga/the-promised-neverland-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/the-promised-neverland-chapter-{chapter/"
   },
   "the-strongest-evolutionary-necromancer": {
     "name": "The Strongest Evolutionary Necromancer",
     "type": "dynamic",
     "base_domain": "thestrongestevolutionarynecromancer.com",
-    "test_path": "/manga/thestrongestevolutionarynecromancer-chapter-1",
-    "url_pattern": "{mirror}/manga/thestrongestevolutionarynecromancer-chapter-{chapter}"
+    "test_path": "/manga/necromancers-evolutionary-traits-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/necromancers-evolutionary-traits-chapter-{chapter/"
   },
   "the-way-of-the-househusband": {
     "name": "The Way Of The Househusband",
     "type": "dynamic",
     "base_domain": "thewayofthehousehusband.com",
-    "test_path": "/manga/thewayofthehousehusband-chapter-1",
-    "url_pattern": "{mirror}/manga/thewayofthehousehusband-chapter-{chapter}"
+    "test_path": "/manga/the-way-of-the-househusband-chapter-{chaptere/",
+    "url_pattern": "{mirror}/manga/the-way-of-the-househusband-chapter-{chaptere/"
   },
   "this-monster-wants-to-eat-me": {
     "name": "This Monster Wants To Eat Me",
     "type": "dynamic",
     "base_domain": "thismonsterwantstoeatme.com",
-    "test_path": "/manga/this-monster-wants-to-eat-me-chapter-1",
-    "url_pattern": "{mirror}/manga/this-monster-wants-to-eat-me-chapter-{chapter}"
+    "test_path": "/manga/this-monster-wants-to-eat-me-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/this-monster-wants-to-eat-me-chapter-{chapter/"
   },
   "to-not-die": {
     "name": "To Not Die",
     "type": "dynamic",
     "base_domain": "tonotdie.com",
-    "test_path": "/manga/tonotdie-chapter-1",
-    "url_pattern": "{mirror}/manga/tonotdie-chapter-{chapter}"
+    "test_path": "/manga/to-not-die-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/to-not-die-chapter-{chapter/"
   },
   "tomb-raider-king": {
     "name": "Tomb Raider King",
     "type": "dynamic",
     "base_domain": "read.tombraiderking.cc",
-    "test_path": "/manga/tombraiderking-chapter-1",
-    "url_pattern": "{mirror}/manga/tombraiderking-chapter-{chapter}"
+    "test_path": "/manga/tomb-raider-king-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/tomb-raider-king-chapter-{chapter/"
   },
   "tomie": {
     "name": "Tomie",
     "type": "dynamic",
     "base_domain": "w3.tomie-manga.com",
-    "test_path": "/manga/tomie-chapter-1",
-    "url_pattern": "{mirror}/manga/tomie-chapter-{chapter}"
+    "test_path": "/manga/tomie-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/tomie-chapter-{chapter/"
   },
   "tomo-chan-is-a-girl": {
     "name": "Tomo Chan Is A Girl",
     "type": "dynamic",
     "base_domain": "tomochanisagirlmanga.com",
-    "test_path": "/manga/tomo-chan-is-a-girl-chapter-1",
-    "url_pattern": "{mirror}/manga/tomo-chan-is-a-girl-chapter-{chapter}"
+    "test_path": "/manga/tomo-chan-is-a-girl-vol-8-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/tomo-chan-is-a-girl-vol-8-chapter-{chapter/"
   },
   "tonikaku-kawaii": {
     "name": "Tonikaku Kawaii",
     "type": "dynamic",
     "base_domain": "w2.tonikakukawaii.com",
     "test_path": "/manga/tonikaku-kawaii-chapter-1",
-    "url_pattern": "{mirror}/manga/tonikaku-kawaii-chapter-{chapter}"
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   },
   "too-many-losing-heroines": {
     "name": "Too Many Losing Heroines",
     "type": "dynamic",
     "base_domain": "toomanylosingheroines.com",
-    "test_path": "/manga/too-many-losing-heroines-chapter-1",
-    "url_pattern": "{mirror}/manga/too-many-losing-heroines-chapter-{chapter}"
+    "test_path": "/manga/too-many-losing-heroines-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/too-many-losing-heroines-chapter-{chapter/"
   },
   "tougen-anki": {
     "name": "Tougen Anki",
     "type": "dynamic",
     "base_domain": "tougen-anki.com",
-    "test_path": "/manga/tougen-anki-chapter-1",
-    "url_pattern": "{mirror}/manga/tougen-anki-chapter-{chapter}"
+    "test_path": "/manga/tougen-anki-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/tougen-anki-chapter-{chapter/"
   },
   "tower-of-god": {
     "name": "Tower Of God",
     "type": "dynamic",
     "base_domain": "thetowerofgod.com",
-    "test_path": "/manga/towerofgod-chapter-1",
-    "url_pattern": "{mirror}/manga/towerofgod-chapter-{chapter}"
+    "test_path": "/manga/tower-of-god-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/tower-of-god-chapter-{chapter/"
   },
   "trigun": {
     "name": "Trigun",
     "type": "dynamic",
     "base_domain": "trigunmanga.com",
-    "test_path": "/manga/trigun-chapter-1",
-    "url_pattern": "{mirror}/manga/trigun-chapter-{chapter}"
+    "test_path": "/manga/trigun-maximum-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/trigun-maximum-chapter-{chapter/"
   },
   "tsue-to-tsurugi-no-wistoria": {
     "name": "Tsue To Tsurugi No Wistoria",
     "type": "dynamic",
     "base_domain": "tsuetotsuruginowistoria.com",
-    "test_path": "/manga/tsue-to-tsurugi-no-wistoria-chapter-1",
-    "url_pattern": "{mirror}/manga/tsue-to-tsurugi-no-wistoria-chapter-{chapter}"
+    "test_path": "/manga/tsue-to-tsurugi-no-wistoria-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/tsue-to-tsurugi-no-wistoria-chapter-{chapter/"
   },
   "tsukimichi-moonlit-fantasy": {
     "name": "Tsukimichi Moonlit Fantasy",
     "type": "dynamic",
     "base_domain": "tsukimichimoonlitfantasy.com",
-    "test_path": "/manga/tsukimichi-moonlit-fantasy-chapter-1",
-    "url_pattern": "{mirror}/manga/tsukimichi-moonlit-fantasy-chapter-{chapter}"
+    "test_path": "/manga/tsukimichi-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/tsukimichi-chapter-{chapter/"
   },
   "tsurezure-children": {
     "name": "Tsurezure Children",
     "type": "dynamic",
     "base_domain": "tsurezurechildren.com",
-    "test_path": "/manga/tsurezurechildren-chapter-1",
-    "url_pattern": "{mirror}/manga/tsurezurechildren-chapter-{chapter}"
+    "test_path": "/manga/tsurezure-children-chapter-212-{chapter/",
+    "url_pattern": "{mirror}/manga/tsurezure-children-chapter-212-{chapter/"
   },
   "tsuyokute-new-saga": {
     "name": "Tsuyokute New Saga",
     "type": "dynamic",
     "base_domain": "tsuyokutenewsaga.com",
-    "test_path": "/manga/tsuyokutenewsaga-chapter-1",
-    "url_pattern": "{mirror}/manga/tsuyokutenewsaga-chapter-{chapter}"
+    "test_path": "/manga/tsuyokute-new-saga-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/tsuyokute-new-saga-chapter-{chapter/"
   },
   "tune-in-to-the-midnight-heart": {
     "name": "Tune In To The Midnight Heart",
     "type": "dynamic",
     "base_domain": "tuneintothemidnightheart.com",
-    "test_path": "/manga/tune-in-to-the-midnight-heart-chapter-1",
-    "url_pattern": "{mirror}/manga/tune-in-to-the-midnight-heart-chapter-{chapter}"
+    "test_path": "/manga/tune-in-to-the-midnight-heart-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/tune-in-to-the-midnight-heart-chapter-{chapter/"
   },
   "tyrant-of-the-tower-defense-game": {
     "name": "Tyrant Of The Tower Defense Game",
     "type": "dynamic",
     "base_domain": "tyrantofthetowerdefensegame.com",
     "test_path": "/manga/tyrant-of-the-tower-defense-game-chapter-1",
-    "url_pattern": "{mirror}/manga/tyrant-of-the-tower-defense-game-chapter-{chapter}"
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   },
   "ubel-blatt": {
     "name": "Ubel Blatt",
     "type": "dynamic",
     "base_domain": "w1.ubelblatt.com",
-    "test_path": "/manga/ubel-blatt-chapter-1",
-    "url_pattern": "{mirror}/manga/ubel-blatt-chapter-{chapter}"
+    "test_path": "/manga/ubel-blatt-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/ubel-blatt-chapter-{chapter/"
   },
   "uma-musume-cinderella-gray": {
     "name": "Uma Musume Cinderella Gray",
     "type": "dynamic",
     "base_domain": "umamusumecinderellagray.com",
-    "test_path": "/manga/umamusumecinderellagray-chapter-1",
-    "url_pattern": "{mirror}/manga/umamusumecinderellagray-chapter-{chapter}"
+    "test_path": "/manga/uma-musume-cinderella-gray-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/uma-musume-cinderella-gray-chapter-{chapter/"
   },
   "undead-unluck": {
     "name": "Undead Unluck",
     "type": "dynamic",
     "base_domain": "readundeadunluck.com",
-    "test_path": "/manga/undeadunluck-chapter-1",
-    "url_pattern": "{mirror}/manga/undeadunluck-chapter-{chapter}"
+    "test_path": "/manga/undead-unluck-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/undead-unluck-chapter-{chapter/"
   },
   "urek-mazino": {
     "name": "Urek Mazino",
@@ -1424,98 +1445,70 @@
     "name": "Uruwashi No Yoi No Tsuki",
     "type": "dynamic",
     "base_domain": "uruwashi-no-yoi-no-tsuki.com",
-    "test_path": "/manga/uruwashi-no-yoi-no-tsuki-chapter-1",
-    "url_pattern": "{mirror}/manga/uruwashi-no-yoi-no-tsuki-chapter-{chapter}"
+    "test_path": "/manga/uruwashi-no-yoi-no-tsuki-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/uruwashi-no-yoi-no-tsuki-chapter-{chapter/"
   },
   "vagabond": {
     "name": "Vagabond",
     "type": "dynamic",
     "base_domain": "readvagabond.com",
-    "test_path": "/manga/vagabond-chapter-1",
-    "url_pattern": "{mirror}/manga/vagabond-chapter-{chapter}"
+    "test_path": "/manga/vagabond-chapter-{chapter-release-date-and-spoiler/",
+    "url_pattern": "{mirror}/manga/vagabond-chapter-{chapter-release-date-and-spoiler/"
   },
   "vagabond-saigo-no-manga-ten": {
     "name": "Vagabond Saigo No Manga Ten",
     "type": "dynamic",
     "base_domain": "readvagabond.com",
-    "test_path": "/manga/vagabond-chapter-1",
-    "url_pattern": "{mirror}/manga/vagabond-chapter-{chapter}"
+    "test_path": "/manga/vagabond-chapter-{chapter-release-date-and-spoiler/",
+    "url_pattern": "{mirror}/manga/vagabond-chapter-{chapter-release-date-and-spoiler/"
   },
   "wandance": {
     "name": "Wandance",
     "type": "dynamic",
     "base_domain": "wandance.com",
-    "test_path": "/manga/wandance-chapter-1",
-    "url_pattern": "{mirror}/manga/wandance-chapter-{chapter}"
+    "test_path": "/manga/wandance-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/wandance-chapter-{chapter/"
   },
   "weak-hero": {
     "name": "Weak Hero",
     "type": "dynamic",
     "base_domain": "weakhero.org",
-    "test_path": "/manga/weakhero-chapter-1",
-    "url_pattern": "{mirror}/manga/weakhero-chapter-{chapter}"
+    "test_path": "/manga/weak-hero-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/weak-hero-chapter-{chapter/"
   },
   "witch-hat-atelier": {
     "name": "Witch Hat Atelier",
     "type": "dynamic",
     "base_domain": "witchhatatelier.com",
-    "test_path": "/manga/witchhatatelier-chapter-1",
-    "url_pattern": "{mirror}/manga/witchhatatelier-chapter-{chapter}"
+    "test_path": "/manga/witch-hat-atelier-chapter-{chapterb/",
+    "url_pattern": "{mirror}/manga/witch-hat-atelier-chapter-{chapterb/"
   },
   "witchriv": {
     "name": "Witchriv",
     "type": "dynamic",
     "base_domain": "witchriv.com",
-    "test_path": "/manga/witchriv-chapter-1",
-    "url_pattern": "{mirror}/manga/witchriv-chapter-{chapter}"
+    "test_path": "/comic/witchriv-chapter-{chapter/",
+    "url_pattern": "{mirror}/comic/witchriv-chapter-{chapter/"
   },
   "you-and-i-are-polar-opposites": {
     "name": "You And I Are Polar Opposites",
     "type": "dynamic",
     "base_domain": "readyouandiarepolaropposites.com",
-    "test_path": "/manga/youandiarepolaropposites-chapter-1",
-    "url_pattern": "{mirror}/manga/youandiarepolaropposites-chapter-{chapter}"
+    "test_path": "/read/{chapter",
+    "url_pattern": "{mirror}/read/{chapter"
   },
   "your-lie-in-april": {
     "name": "Your Lie In April",
     "type": "dynamic",
     "base_domain": "yourlieinaprilmanga.com",
-    "test_path": "/manga/your-lie-in-april-chapter-1",
-    "url_pattern": "{mirror}/manga/your-lie-in-april-chapter-{chapter}"
+    "test_path": "/manga/your-lie-in-april-chapter-{chapter/",
+    "url_pattern": "{mirror}/manga/your-lie-in-april-chapter-{chapter/"
   },
   "your-talent-is-mine": {
     "name": "Your Talent Is Mine",
     "type": "dynamic",
     "base_domain": "yourtalentismine.com",
     "test_path": "/manga/your-talent-is-mine-chapter-1",
-    "url_pattern": "{mirror}/manga/your-talent-is-mine-chapter-{chapter}"
-  },
-  "frieren-beyond-journeys-end": {
-    "name": "Frieren Beyond Journeys End",
-    "type": "dynamic",
-    "base_domain": "read-frieren-manga.com",
-    "test_path": "/manga/frieren-chapter-1",
-    "url_pattern": "{mirror}/manga/frieren-chapter-{chapter}"
-  },
-  "berserk-of-gluttony": {
-    "name": "Berserk Of Gluttony",
-    "type": "dynamic",
-    "base_domain": "berserk-manga.com",
-    "test_path": "/manga/berserk-chapter-1",
-    "url_pattern": "{mirror}/manga/berserk-chapter-{chapter}"
-  },
-  "gokurakugai-trouble-on-third-avenue": {
-    "name": "Gokurakugai Trouble On Third Avenue",
-    "type": "dynamic",
-    "base_domain": "gokurakugai.com",
-    "test_path": "/manga/gokurakugai-chapter-1",
-    "url_pattern": "{mirror}/manga/gokurakugai-chapter-{chapter}"
-  },
-  "gokurakugai-sanban-doori-no-ken": {
-    "name": "Gokurakugai Sanban Doori No Ken",
-    "type": "dynamic",
-    "base_domain": "gokurakugai.com",
-    "test_path": "/manga/gokurakugai-chapter-1",
-    "url_pattern": "{mirror}/manga/gokurakugai-chapter-{chapter}"
+    "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
   }
 }
