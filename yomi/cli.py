@@ -266,7 +266,7 @@ def available(search, show_all):
     
     if not show_all and len(sites) > len(display_keys):
         remaining = len(sites) - len(display_keys)
-        console.print(f"\n[dim italic]...and {remaining} more series hidden. Use [bold cyan]--all[/] to unlock.[/]", justify="center")
+        console.print(f"\n[dim italic]...and {remaining} more series hidden. Use [bold cyan]--all[/] to view.[/]", justify="center")
 
 if __name__ == '__main__':
     cli()

@@ -24,12 +24,12 @@ except ImportError:
 console = Console()
 
 # --- AYARLAR ---
-RAW_NAMES_PATH = os.path.join("yomi", "utils", "raw-names.json")
+RAW_NAMES_PATH = os.path.join("tools", "raw-names.json")
 TARGET_DB_PATH = os.path.join("yomi", "sites.json")
 TEMP_DIR = "temp_test_zone"
 
 # --- HIZ AYARLARI ---
-CONCURRENT_MANGAS = 20        
+CONCURRENT_MANGAS = 30        
 GLOBAL_CONNECTION_LIMIT = 300 
 
 # --- TANRI MODU HEADERS ---

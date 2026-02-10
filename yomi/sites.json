@@ -1482,5 +1482,159 @@
     "base_domain": "yourtalentismine.com",
     "test_path": "/manga/your-talent-is-mine-chapter-1",
     "url_pattern": "{mirror}/manga/{slug}-chapter-{chapter}"
+  },
+  "my-hero-academia": {
+    "name": "My Hero Academia",
+    "type": "dynamic",
+    "base_domain": "my-hero-academia.org",
+    "test_path": "/manga/my-hero-academia-chapter-1",
+    "url_pattern": "{mirror}/manga/my-hero-academia-chapter-{chapter}"
+  },
+  "20th-century-boys": {
+    "name": "20Th Century Boys",
+    "type": "dynamic",
+    "base_domain": "read20thcenturyboys.com",
+    "test_path": "/manga/20thcenturyboys-chapter-1",
+    "url_pattern": "{mirror}/manga/20thcenturyboys-chapter-{chapter}"
+  },
+  "kaiju-no8": {
+    "name": "Kaiju No8",
+    "type": "dynamic",
+    "base_domain": "kaiju-no8.com",
+    "test_path": "/manga/kaiju-no8-chapter-1",
+    "url_pattern": "{mirror}/manga/kaiju-no8-chapter-{chapter}"
+  },
+  "jojos-bizarre-adventure-part-7steel-ball-run": {
+    "name": "Jojos Bizarre Adventure Part 7Steel Ball Run",
+    "type": "dynamic",
+    "base_domain": "readjojos.com",
+    "test_path": "/manga/jojos-chapter-1",
+    "url_pattern": "{mirror}/manga/jojos-chapter-{chapter}"
+  },
+  "boku-no-hero-academia": {
+    "name": "Boku No Hero Academia",
+    "type": "dynamic",
+    "base_domain": "bokunoheroacademia.org",
+    "test_path": "/manga/bokunoheroacademia-chapter-1",
+    "url_pattern": "{mirror}/manga/bokunoheroacademia-chapter-{chapter}"
+  },
+  "jojos-bizarre-adventure-part-6-stone-ocean": {
+    "name": "Jojos Bizarre Adventure Part 6 Stone Ocean",
+    "type": "dynamic",
+    "base_domain": "readjojos.com",
+    "test_path": "/manga/jojos-chapter-1",
+    "url_pattern": "{mirror}/manga/jojos-chapter-{chapter}"
+  },
+  "blue-period": {
+    "name": "Blue Period",
+    "type": "dynamic",
+    "base_domain": "blueperiod.net",
+    "test_path": "/manga/blueperiod-chapter-1",
+    "url_pattern": "{mirror}/manga/blueperiod-chapter-{chapter}"
+  },
+  "jojos-bizarre-adventure": {
+    "name": "Jojos Bizarre Adventure",
+    "type": "dynamic",
+    "base_domain": "readjojos.com",
+    "test_path": "/manga/jojos-chapter-1",
+    "url_pattern": "{mirror}/manga/jojos-chapter-{chapter}"
+  },
+  "kokou-no-hito": {
+    "name": "Kokou No Hito",
+    "type": "dynamic",
+    "base_domain": "kokounohito.com",
+    "test_path": "/manga/kokounohito-chapter-1",
+    "url_pattern": "{mirror}/manga/kokounohito-chapter-{chapter}"
+  },
+  "grand-blue": {
+    "name": "Grand Blue",
+    "type": "dynamic",
+    "base_domain": "thegrandblue.com",
+    "test_path": "/manga/grandblue-chapter-1",
+    "url_pattern": "{mirror}/manga/grandblue-chapter-{chapter}"
+  },
+  "fairy-tail": {
+    "name": "Fairy Tail",
+    "type": "dynamic",
+    "base_domain": "fairy-tail.org",
+    "test_path": "/manga/fairy-tail-chapter-1",
+    "url_pattern": "{mirror}/manga/fairy-tail-chapter-{chapter}"
+  },
+  "grand-blue-dreaming": {
+    "name": "Grand Blue Dreaming",
+    "type": "dynamic",
+    "base_domain": "grandbluedreaming.com",
+    "test_path": "/manga/grandbluedreaming-chapter-1",
+    "url_pattern": "{mirror}/manga/grandbluedreaming-chapter-{chapter}"
+  },
+  "jojos-bizarre-adventure-part-1-phantom-blood": {
+    "name": "Jojos Bizarre Adventure Part 1 Phantom Blood",
+    "type": "dynamic",
+    "base_domain": "readjojos.com",
+    "test_path": "/manga/jojos-chapter-1",
+    "url_pattern": "{mirror}/manga/jojos-chapter-{chapter}"
+  },
+  "kawaii-dake-ja-nai-shikimori-san": {
+    "name": "Kawaii Dake Ja Nai Shikimori San",
+    "type": "dynamic",
+    "base_domain": "kawaiidakejanaishikimorisan.com",
+    "test_path": "/manga/kawaiidakejanaishikimorisan-chapter-1",
+    "url_pattern": "{mirror}/manga/kawaiidakejanaishikimorisan-chapter-{chapter}"
+  },
+  "who-made-me-a-princess": {
+    "name": "Who Made Me A Princess",
+    "type": "dynamic",
+    "base_domain": "whomademeaprincess.net",
+    "test_path": "/manga/whomademeaprincess-chapter-1",
+    "url_pattern": "{mirror}/manga/whomademeaprincess-chapter-{chapter}"
+  },
+  "jojos-bizarre-adventure-part-2-battle-tendency": {
+    "name": "Jojos Bizarre Adventure Part 2 Battle Tendency",
+    "type": "dynamic",
+    "base_domain": "readjojos.com",
+    "test_path": "/manga/jojos-chapter-1",
+    "url_pattern": "{mirror}/manga/jojos-chapter-{chapter}"
+  },
+  "eleceed": {
+    "name": "Eleceed",
+    "type": "dynamic",
+    "base_domain": "eleceedscans.com",
+    "test_path": "/manga/eleceed-chapter-1",
+    "url_pattern": "{mirror}/manga/eleceed-chapter-{chapter}"
+  },
+  "jojos-bizarre-adventure-part-4-diamond-is-unbreakable": {
+    "name": "Jojos Bizarre Adventure Part 4 Diamond Is Unbreakable",
+    "type": "dynamic",
+    "base_domain": "readjojos.com",
+    "test_path": "/manga/jojos-chapter-1",
+    "url_pattern": "{mirror}/manga/jojos-chapter-{chapter}"
+  },
+  "jojos-bizarre-adventure-part-3-stardust-crusaders": {
+    "name": "Jojos Bizarre Adventure Part 3 Stardust Crusaders",
+    "type": "dynamic",
+    "base_domain": "readjojos.com",
+    "test_path": "/manga/jojos-chapter-1",
+    "url_pattern": "{mirror}/manga/jojos-chapter-{chapter}"
+  },
+  "tenkuu-shinpan": {
+    "name": "Tenkuu Shinpan",
+    "type": "dynamic",
+    "base_domain": "tenkuushinpan.com",
+    "test_path": "/manga/tenkuushinpan-chapter-1",
+    "url_pattern": "{mirror}/manga/tenkuushinpan-chapter-{chapter}"
+  },
+  "myst-might-mayhem": {
+    "name": "Myst Might Mayhem",
+    "type": "dynamic",
+    "base_domain": "myst-might-mayhem.com",
+    "test_path": "/manga/myst-might-mayhem-chapter-1",
+    "url_pattern": "{mirror}/manga/myst-might-mayhem-chapter-{chapter}"
+  },
+  "ending-maker": {
+    "name": "Ending Maker",
+    "type": "dynamic",
+    "base_domain": "endingmaker.org",
+    "test_path": "/manga/endingmaker-chapter-1",
+    "url_pattern": "{mirror}/manga/endingmaker-chapter-{chapter}"
   }
 }
